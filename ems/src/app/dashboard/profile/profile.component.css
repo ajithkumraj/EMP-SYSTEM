@@ -1,0 +1,21 @@
+.header{
+    background-color: #51a6ce;
+}
+.page{
+    background-color: #e8eaeb;
+    width: 100%;
+    height:100%;
+    overflow-x: hidden;
+}
+.body{
+    padding:1rem ;
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+}
+.formcontent{
+    background-color: #ffffff;
+}
+.inp{
+    width: 20rem;
+}
