@@ -1,1 +1,129 @@
-<p>support works!</p>
+<div class="pro">
+ <h3>professional details</h3>
+ <form>
+  <div class="form-group">
+  <label>Company Name</label>
+  </div>
+  <div class="form-group">
+  <input type="text" placeholder="company name">
+  </div>  <label>Duration</label>
+  <br>
+  <input type="text" placeholder="From"><input type="text" placeholder="To">
+  <label>Role/Title</label>
+  <input type="text" placeholder="Designation">
+  <br><br>
+  <label>Reason for Changes </label>
+  <input type="text" placeholder="Reason for Changes">
+  <label>Total Years of Experience</label>
+  <input type="text" placeholder="Total Years of Experience">
+  <hr>
+  <h3>Other Details</h3>
+  <label>Additional qualification/Achievements</label>
+  <input type="text" placeholder="">
+  <br><br>
+  <div class="radio">
+   Are you physically challenged?
+   <br>
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=1 checked>Yes
+   </label>
+  </div>
+  <div class="radio">
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=0>No
+   </label>
+  </div>
+  <div class="radio">
+   Have you ever been arrested ?
+   <br>
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=1 checked>Yes
+   </label>
+  </div>
+  <div class="radio">
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=0>No
+   </label>
+  </div>
+  <div class="radio">
+   Have you ever been considered for employement in OFS ?
+   <br>
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=1 checked>Yes
+   </label>
+  </div>
+  <div class="radio">
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=0>No
+   </label>
+  </div>
+  <div class="radio">
+   Have you suffered from any serious illness or surgical ?
+   <br>
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=1 checked>Yes
+   </label>
+  </div>
+  <div class="radio">
+   <label>
+    <input type="radio" name="gndr" formControlName="gndr" value=0>No
+   </label>
+  </div>
+  <hr>
+  <h3>References(List any two professional references</h3>
+  <button class="but">Add</button>
+  <table class="table">
+   <thead class="thead-dark">
+    <tr>
+     <th scope="col">#</th>
+     <th scope="col">Full name</th>
+     <th scope="col">Professional Relationship </th>
+     <th scope="col">Contact No</th>
+     <th scope="col">Business/Occupation</th>
+     <th scope="col">Action</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <th scope="row">1</th>
+     <td>Ajith</td>
+     <td>Project manager</td>
+     <td>1234567890</td>
+     <td>Software</td>
+     <td> <button> Edit</button><button>Delete</button></td>
+    </tr>
+    <tr>
+     <th scope="row">2</th>
+     <td>Kumar</td>
+     <td>Team member</td>
+     <td>12345677890</td>
+     <td>Software</td>
+     <td> <button> Edit</button><button>Delete</button></td>
+    </tr>
+    <tr>
+     <th scope="row">3</th>
+     <td>Ajith kumar</td>
+     <td>Team member</td>
+     <td>1234567890</td>
+     <td>Software</td>
+     <td> <button> Edit</button><button>Delete</button></td>
+    </tr>
+   </tbody>
+  </table>
+  <br>
+  <div class="form-group form-check">
+   <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+   <label for="acceptTerms" class="form-check-label"> I hereby certify that statement I made above is true, compelete
+    and correct to the best of my knoeledge and belief. </label>
+  </div>
+  <br>
+  <div>
+   <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
+   <button class="btn btn-primary mr-1">Submit</button>
+  </div>
+
+
+
+
+ </form>
+</div>
