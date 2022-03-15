@@ -15,6 +15,10 @@ import { TimesheetComponent } from './dashboard/timesheet/timesheet.component';
 import { AttendenceComponent } from './dashboard/attendence/attendence.component';
 import { NoticeboardComponent } from './dashboard/noticeboard/noticeboard.component';
 import { ContactComponent } from './dashboard/contact/contact.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,16 @@ import { ContactComponent } from './dashboard/contact/contact.component';
     TimesheetComponent,
     AttendenceComponent,
     NoticeboardComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
