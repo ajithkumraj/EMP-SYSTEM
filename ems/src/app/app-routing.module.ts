@@ -1,3 +1,4 @@
+import { ProfileComponent } from './dashboard/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
@@ -31,6 +32,7 @@ children:[
 {path:'contact',component:ContactComponent},
 {path:'nopage',component:NopageComponent},
 {path:'noticeboard',component:NoticeboardComponent},
+{path:'profile',component:ProfileComponent},
 {path:'support',component:SupportComponent},
 {path:'timesheet',component:TimesheetComponent},
 {path:'support',component:SupportComponent},
