@@ -18,13 +18,14 @@ const routes: Routes = [
   {path:'',component:AuthComponent},
   {path:'auth',component:AuthComponent,
 children:[
-  {path:'',component:LoginComponent},
+{path:'',component:LoginComponent},
 {path:'login',component:LoginComponent},
 {path:'signup',component:SignupComponent},
 {path:'reset',component:ResetComponent},
 {path:'forgot',component:ForgotComponent},]},
 {path:'dashboard',component:DashboardComponent,
-children:[{path:'',component:HomeComponent},
+children:[
+  {path:'',component:HomeComponent},
 {path:'home',component:HomeComponent},
 {path:'attendence',component:AttendenceComponent},
 {path:'contact',component:ContactComponent},

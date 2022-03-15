@@ -9,7 +9,6 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ResetComponent } from './auth/reset/reset.component';
 import { ForgotComponent } from './auth/forgot/forgot.component';
-import { NopageComponent } from './auth/nopage/nopage.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { SupportComponent } from './dashboard/support/support.component';
 import { TimesheetComponent } from './dashboard/timesheet/timesheet.component';
@@ -26,7 +25,6 @@ import { ContactComponent } from './dashboard/contact/contact.component';
     SignupComponent,
     ResetComponent,
     ForgotComponent,
-    NopageComponent,
     HomeComponent,
     SupportComponent,
     TimesheetComponent,
