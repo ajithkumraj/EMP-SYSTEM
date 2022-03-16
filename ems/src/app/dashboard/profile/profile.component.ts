@@ -15,74 +15,80 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder) {
 
     this.userform=this.fb.group({
-      name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      firstname: new FormControl('', [Validators.required, Validators.minLength(2)]), 
+      lastname: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      dob: new FormControl('', [Validators.required]),
       gender: new FormControl('', Validators.required),
-      age: new FormControl('', [Validators.required]),
-      check: new FormControl('', Validators.requiredTrue),
-      HOBBY: new FormControl('', Validators.required),
-      quantities: this.fb.array([]),
-      name2:new FormControl(''),
-      name3:new FormControl(''),
-      name4:new FormControl('')
+      empref: new FormControl('', Validators.required),
+      mobilenumber: new FormControl('', Validators.required),
+      homenumber: new FormControl('', Validators.required),
+      officenumber: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      presentaddressfull: new FormControl('', Validators.required),
+      presentlocality: new FormControl('', Validators.required),
+      presentcity: new FormControl('', Validators.required),
+      presentpincode: new FormControl('', Validators.required),
+      presentdistrict: new FormControl('', Validators.required),
+      presentstate: new FormControl('', Validators.required),
+      presentcountry: new FormControl('', Validators.required),
+      presentlandmark: new FormControl('', Validators.required),
+      permanentaddresscheck: new FormControl('', Validators.required),
+      permanentaddressfull: new FormControl('', Validators.required),
+      permanentaddresslocality: new FormControl('', Validators.required),
+      permanentaddresscity: new FormControl('', Validators.required),
+      permanentaddresspincode: new FormControl('', Validators.required),
+      permanentaddressdistrict: new FormControl('', Validators.required),
+      permanentaddressstate: new FormControl('', Validators.required),
+      permanentaddresscountry: new FormControl('', Validators.required),
+      permanentaddresslandmark: new FormControl('', Validators.required),
+      passwordvalue: new FormControl('', Validators.required),
+      visa: new FormControl('', Validators.required),
+      maritialstatus: new FormControl('', Validators.required),
+      companyname: new FormControl('', Validators.required),
+      durationfrom: new FormControl('', Validators.required),
+      durationto: new FormControl('', Validators.required),
+      role: new FormControl('', Validators.required),
+      reason: new FormControl('', Validators.required),
+      experience: new FormControl('', Validators.required),
+      qualification: new FormControl('', Validators.required),
+      physically: new FormControl('', Validators.required),
+      illness: new FormControl('', Validators.required),
+      arrested: new FormControl('', Validators.required),
+      OFS: new FormControl('', Validators.required),
+      acceptTerms: new FormControl('', Validators.required),
+      family:this.fb.array([]),
     })
   
    }
 
   ngOnInit() {
     this.userform.reset();
-    this.quantities().clear();
-    for (let i:number = 18; i <= 99; i++) {
-      this.options.push(i);
-    }
   }
   nameofuser='Test User'
   formmode="CREATE USER"
   div1=true
-  div2=false
-  div3=false
-  div4=false
-show1(){
-  this.div1=true,this.div2=false,this.div3=false,this.div4=false
-}
-show2(){
-  this.div2=true,this.div1=false,this.div3=false,this.div4=false
-}
-show3(){
-  this.div3=true,this.div1=false,this.div2=false,this.div4=false
-}
-show4(){
-  this.div4=true,this.div1=false,this.div3=false,this.div2=false
-}
-quantities(): any {
-  return this.userform.get('quantities') as FormArray;
-}
-newQuatity(): FormGroup {
-  return this.fb.group({
-    qty: '',
-    qty1:''
-  });
-}
-addQuantity() {
-  this.quantities().push(this.newQuatity());
-}
-removeQuantities(i: number) {
-  this.quantities().removeAt(i);
-}
+  div2=true
+  div3=true
+  div4=true
 add() {
-  console.log(this.userform.value);
-  this.users.push(this.userform.value);
-  this.userform.reset();
-  this.quantities().clear();
+     console.log(this.userform.value);
+    this.userform.reset();
+   }
+   reseter() {
+    this.userform.reset();
+   }
+familys(){
+  return this.userform.get('family') as FormArray
 }
-reseter() {
-  this.userform.reset();
-  this.quantities().clear();
+addfam(){
+this.familys().push(this.fb.group({
+  famname:'',
+  famrelationship:'',
+  famage:'',
+  famoccuption:'',
+}))}
+removefam(i:number){
+  this.familys().removeAt(i)
+  // this.userform.controls['family'].setValue
 }
-remove(userDetail: { name: any; }) {
-  this.users.splice(
-    this.users.findIndex((user: { name: any; }) => user.name === userDetail.name),
-    1
-  );
-}
-
 }
