@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-support',
@@ -7,10 +7,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./support.component.css']
 })
 export class SupportComponent implements OnInit {
-
+  // userform!: FormGroup;
 register: FormGroup |any;
 
-  constructor() { }
+  constructor( ) { }
    ngOnInit(): void {
 this.register = new FormGroup({
   name: new FormControl('',Validators.required),
@@ -26,8 +26,7 @@ this.register = new FormGroup({
   illness: new FormControl('',Validators.required),
  
 })
-
   }
   
-
+ 
 }

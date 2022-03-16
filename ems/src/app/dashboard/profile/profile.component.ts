@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
   
    }
 
-  ngOnInit() {
+  ngOnInit() { debugger
     this.dataform = this.fb.group({
       name: new FormControl('', [Validators.required, Validators.minLength(1)]),
       gender: new FormControl('', Validators.required),
