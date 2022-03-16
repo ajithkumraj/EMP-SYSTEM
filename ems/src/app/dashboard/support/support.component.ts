@@ -27,10 +27,6 @@ this.register = new FormGroup({
  
 })
 
-//      submit(){
-//   this.register
-// }
-
   }
 
 }
