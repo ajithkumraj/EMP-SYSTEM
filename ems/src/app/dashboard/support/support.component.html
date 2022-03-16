@@ -1,141 +1,175 @@
 <div class="Professional">
- <div class="aaa" style=" margin-left: 15px; margin-top: -10px;">
-  <mat-icon> business</mat-icon>
-  <div style="margin-left: 45px;
-  margin-top: -15px; margin-bottom: 20px;">
-  Professional Details</div>
- </div>
- <div class="add" style="margin-left: 960px;     margin-top: -35px;" >
-  <mat-icon>add_box</mat-icon>
-  <div style="margin-top: -27px;
+  <div class="aaa" style="margin-left: 10px;     margin-top: -5px;">
+    <mat-icon> business</mat-icon>
+    <div style="margin-top: -26px;
+  margin-left: 30px;">
+      <strong>Professional Details </strong>
+    </div>
+  </div>
+  <div class="add" style="margin-left: 960px;     margin-top: -5px;">
+    <mat-icon>add_box</mat-icon>
+    <div style="margin-top: -27px;
   margin-left: 30px;">Add</div>
- </div>
- <form [formGroup]="register">
-  <div class="form-group">
-   <label>Company Name</label>
-   <br>
-   <input type="text" placeholder="company name" formControlName="name" style="width: 1000px;">
-   
-  </div>
-  <div class="form-group">
-   <label>Duration</label>
-   <br>
-   <input type="text" placeholder="From" formControlName="from" style="width: 190px;">
-   <input type="text" placeholder="To" formControlName="to" style="margin-left: 20px;width: 190px;"  >
-  </div>
-  <div class="form-group" style="margin-left: 600px;     margin-top: -50px;">
-   <label>Role/Title</label>
-   <br>
-   <input type="text" placeholder="Designation" formControlName="role"  style="width: 400px;">
-  </div>
-  <div class="form-group">
-   <label>Reason for Changes </label>
-   <br>
-   <input type="text" placeholder="Reason for Changes" formControlName="reason" style="width: 400px;">
-  </div>
-  <div class="form-group" style="margin-left: 600px;     margin-top: -50px;">
-   <label>Total years of experience</label>
-   <br>
-   <input type="text" placeholder="Total Years of Experience" formControlName="experience"  style="width: 400px;">
-  </div>
-  <hr>
-  <div class="aaa">Other Details</div>
-  <div class="form-group">
-   <label>Additional qualification/Achievements</label>
-   <br>
-   <input type="text" placeholder="" formControlName="qualification" style="height: 70px; width: 400px;">
-  </div>
-  <div class="form-group">
-     Are you physically challenged?
-    <br>
-    <label>
-     <input type="radio" name="physically" formControlName="physically" value=1 checked>Yes
-    </label>
-    <label>
-     <input type="radio" name="physically" formControlName="physically" value=0 style="margin-left: 20px;">No
-    </label>
+  </div>  
+  <form [formGroup]="register">
+    <div class="form-group">
+      <label>Company Name</label>
+      <br>
+      <input type="text" placeholder="company name" formControlName="name" style="width: 1000px;">
+    </div>
+    <div class="form-group">
+      <label>Duration</label>
+      <br>
+      <input type="text" placeholder="From" formControlName="from" style="width: 190px;">
+      <input type="text" placeholder="To" formControlName="to" style="margin-left: 20px;width: 190px;">
+    </div>
+    <div class="form-group" style="margin-left: 600px;     margin-top: -50px;">
+      <label>Role/Title</label>
+      <br>
+      <input type="text" placeholder="Designation" formControlName="role" style="width: 400px;">
+    </div>
+    <div class="form-group">
+      <label>Reason for Changes </label>
+      <br>
+      <input type="text" placeholder="Reason for Changes" formControlName="reason" style="width: 400px;">
+    </div>
+    <div class="form-group" style="margin-left: 600px;     margin-top: -50px;">
+      <label>Total years of experience</label>
+      <br>
+      <input type="text" placeholder="Total Years of Experience" formControlName="experience" style="width: 400px;">
+    </div>
+    <hr>
+    <div class="aaa"><strong> Other Details </strong></div>
+    <div class="form-group">
+      <label>Additional qualification/Achievements</label>
+      <br>
+      <input type="text" placeholder="" formControlName="qualification" style="height: 70px; width: 400px;">
+    </div>
+    <div class="form-group">
+      Are you physically challenged?
+      <br>
+      <label>
+        <input type="radio" name="physically" formControlName="physically" value=1 checked>Yes
+      </label>
+      <label>
+        <input type="radio" name="physically" formControlName="physically" value=0 style="margin-left: 20px;">No
+      </label>
     </div>
     <div class="form-group" style="margin-left: 600px; margin-top: -55px;">
-     Have you suffered from any serious illness or surgical ?
-    <br>
-    <label>
-     <input type="radio" name="illness" formControlName="illness" value=1 checked>Yes
-    </label>
-       <label>
-     <input type="radio" name="illness" formControlName="illness" value=0 style="margin-left: 20px;">No
-    </label>
+      Have you suffered from any serious illness or surgical ?
+      <br>
+      <label>
+        <input type="radio" name="illness" formControlName="illness" value=1 checked>Yes
+      </label>
+      <label>
+        <input type="radio" name="illness" formControlName="illness" value=0 style="margin-left: 20px;">No
+      </label>
     </div>
-   <div class="form-group">
-     Have you ever been arrested ?
-    <br>
-    <label>
-     <input type="radio" name="arrested" formControlName="arrested" value=1 checked>Yes
-    </label>
-     <label>
-     <input type="radio" name="arrested" formControlName="arrested" value=0 style="margin-left: 20px;">No
-    </label>
+    <div class="form-group">
+      Have you ever been arrested ?
+      <br>
+      <label>
+        <input type="radio" name="arrested" formControlName="arrested" value=1 checked>Yes
+      </label>
+      <label>
+        <input type="radio" name="arrested" formControlName="arrested" value=0 style="margin-left: 20px;">No
+      </label>
     </div>
-   <div class="form-group">
-     Have you ever been considered for employement in OFS ?
-    <br>
-    <label>
-     <input type="radio" name="OFS" formControlName="OFS" value=1 checked>Yes
-    </label>
-     <label>
-     <input type="radio" name="OFS" formControlName="OFS" value=0 style="margin-left: 20px;">No
-    </label>
+    <div class="form-group">
+      Have you ever been considered for employement in OFS ?
+      <br>
+      <label>
+        <input type="radio" name="OFS" formControlName="OFS" value=1 checked>Yes
+      </label>
+      <label>
+        <input type="radio" name="OFS" formControlName="OFS" value=0 style="margin-left: 20px;">No
+      </label>
     </div>
-   <hr>
-   <div class="aaa">References(List any two professional references</div>
-  <button class="but">Add</button>
-  <table class="table">
-   <thead class="thead-dark">
-    <tr>
-     <th scope="col">#</th>
-     <th scope="col">Full Name</th>
-     <th scope="col">Professional Relationship </th>
-     <th scope="col">Contact No</th>
-     <th scope="col">Business/Occupation</th>
-     <th scope="col">Action</th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr>
-     <th scope="row">1</th>
-     <td>Ajith</td>
-     <td>Project manager</td>
-     <td>1234567890</td>
-     <td>Software</td>
-     <td> <mat-icon>create</mat-icon><mat-icon>delete_forever</mat-icon></td>
-    </tr>
-    <tr>
-     <th scope="row">2</th>
-     <td>Kumar</td>
-     <td>Team member</td>
-     <td>12345677890</td>
-     <td>Software</td>
-     <td> <mat-icon>create</mat-icon><mat-icon>delete_forever</mat-icon></td>
-    </tr>
-    <tr>
-     <th scope="row">3</th>
-     <td>Ajith kumar</td>
-     <td>Team member</td>
-     <td>1234567890</td>
-     <td>Software</td>
-     <td> <mat-icon>create</mat-icon><mat-icon>delete_forever</mat-icon></td>
-    </tr>
-   </tbody>
-  </table>
-  <br>
-  <div class="form-group form-check">
-   <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
-   <label for="acceptTerms" class="form-check-label"> I hereby certify that statement I made above is true, compelete
-    and correct to the best of my knowledge and belief. </label>
-  </div>
-  <br>
-  <div>
-   <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
-   <button class="btn btn-primary mr-1">Submit</button>
-  </div>
- </form>
+    <hr>
+    <div class="aaa"> <strong> References(List any two professional references) </strong></div>
+    <button class="but">Add</button>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Professional Relationship </th>
+          <th scope="col">Contact No</th>
+          <th scope="col">Business/Occupation</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Ajith</td>
+          <td>Project manager</td>
+          <td>1234567890</td>
+          <td>Software</td>
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"  id="color"viewBox="0 0 16 16">
+              <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="icons" class="bi bi-trash-fill" viewBox="0 0 16 16">
+              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+            </svg>
+            </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Kumar</td>
+          <td>Team member</td>
+          <td>12345677890</td>
+          <td>Software</td>
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"  id="color"viewBox="0 0 16 16">
+              <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="icons" class="bi bi-trash-fill" viewBox="0 0 16 16">
+              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+            </svg>
+            </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Ajith kumar</td>
+          <td>Team member</td>
+          <td>1234567890</td>
+          <td>Software</td>
+          <td>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"  id="color"viewBox="0 0 16 16">
+                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" id="icons" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+              </svg>
+              </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="form-group form-check">
+      <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+      <label for="acceptTerms" class="form-check-label"> I hereby certify that statement I made above is true, compelete
+        and correct to the best of my knowledge and belief. </label>
+    </div>
+    <br>
+    <div>
+      <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
+      <button class="btn btn-primary mr-1">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+
+
+<!-- Rough work -->
+
+<div >
+Name : <input type="text" placeholder="name" formControlName="name"><br><br><br>
+DOB : <input type="text" placeholder="dob" formControlName="dob"><br><br><br>
+Email : <input type="text" placeholder="email" formControlName="email"><br><br><br>
+Contact No : <input type="text" placeholder="contact no" formControlName="contactno"><br><br><br>
+Place : <input type="text" placeholder="place" formControlName="place"><br><br><br>
 </div>

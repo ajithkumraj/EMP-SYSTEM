@@ -1,101 +1,85 @@
 <div class="page ">
-<div class="header p-1" style="color: white;">
-   <div class=" row">
-        <div class="col">
-            <h3>Carrers</h3>
-        </div>
-        <div class="col" style="text-align:end;">
-            <button style="background:none;border:none;color: white"><mat-icon>account_circle</mat-icon>{{nameofuser}}</button>
-        </div>
+  <div class="header p-1" style="color: white;">
+    <div class=" row">
+      <div class="col">
+        <h3>Carrers</h3>
+      </div>
+      <div class="col" style="text-align:end;">
+        <button style="background:none;border:none;color: white">
+          <mat-icon>account_circle</mat-icon>{{nameofuser}}
+        </button>
+      </div>
     </div>
-</div>
-<div class="body">
+  </div>
+  <div class="body">
     <h3>{{formmode}}</h3>
     <div class="formcontent">
-    
-    <div>
-        <button (click)="show1()" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>General</button>
-        <button (click)="show2()" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Educational</button>
-        <button (click)="show3()" class="btn btn-light"><mat-icon style="color:#51a6ce">check_box</mat-icon>Skillset</button>
-        <button (click)="show4()" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Professional</button>
-    </div>
-    <form [formGroup]="userform" class="form-group">
-        <div *ngIf="div1"> 
-            <input placeholder="hello" formControlName="name" class="form-control inp">
-            <button class="btn btn-primary" (click)="show2()">Next</button>
+
+      <div>
+        <button (click)="show1()" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>General
+        </button>
+        <button (click)="show2()" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Educational
+        </button>
+        <button (click)="show3()" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">check_box</mat-icon>Skillset
+        </button>
+        <button (click)="show4()" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Professional
+        </button>
+      </div>
+      <form [formGroup]="userform" class="form-group">
+        <div *ngIf="div1">
+          <input placeholder="hello" formControlName="name" class="form-control inp">
+          <button class="btn btn-primary" (click)="show2()">Next</button>
         </div>
         <div *ngIf="div2">
-            <input placeholder="ok" formControlName="name2" class="form-control inp">
-            <button class="btn btn-primary" (click)="show3()">Next</button>
+          <input placeholder="ok" formControlName="name2" class="form-control inp">
+          <button class="btn btn-primary" (click)="show3()">Next</button>
         </div>
         <div *ngIf="div3">
-            <input placeholder="bye" formControlName="name3" class="form-control inp">
-            <button class="btn btn-primary" (click)="show4()">Next</button>
+          <input placeholder="bye" formControlName="name3" class="form-control inp">
+          <button class="btn btn-primary" (click)="show4()">Next</button>
         </div>
         <div *ngIf="div4">
-            <input placeholder="000" formControlName="name4" class="form-control inp"> 
-            <button class="btn btn-primary">submit</button>
+          <input placeholder="000" formControlName="name4" class="form-control inp">
+          <button class="btn btn-primary">submit</button>
         </div>
-    </form>
-   
+      </form>
 
-</div>
-</div>
-<div class="card d-flex p-2 bd-highlight" style="line-height: 3rem;">
+
+    </div>
+  </div>
+  <div class="card d-flex p-2 bd-highlight" style="line-height: 3rem;">
     <div class="card-block p-5">
       <form [formGroup]="dataform">
         <h3>Add Users Information :</h3>
         <label for="name">
           Name :
-          <input
-            type="text"
-            formControlName="name"
-            id="name"
-            class="input form-control"
-          /> </label
-        ><br />
-        <label for="age"
-          >Age :
+          <input type="text" formControlName="name" id="name" class="input form-control" /> </label><br />
+        <label for="age">Age :
           <select formControlName="age">
             <option *ngFor="let option of options" [value]="option">
               {{ option }}
             </option>
-          </select> </label
-        ><br />
+          </select> </label><br />
         <label for="gender">
           Gender :
-          <input
-            type="radio"
-            value="male"
-            formControlName="gender"
-            id="gender"
-          />Male<input
-            type="radio"
-            value="female"
-            formControlName="gender"
-            id="gender"
-          />Female</label
-        ><br />
+          <input type="radio" value="male" formControlName="gender" id="gender" />Male<input type="radio" value="female"
+            formControlName="gender" id="gender" />Female</label><br />
         <label for="hobby">
           HOBBY :
-          <input
-            type="text"
-            formControlName="HOBBY"
-            class="input form-control"
-            id="hobby"
-        /></label>
+          <input type="text" formControlName="HOBBY" class="input form-control" id="hobby" /></label>
         <div formArrayName="quantities">
           click to add more Hobbies :
           <button type="button" (click)="addQuantity()" class="btn">
             <mat-icon>add_circle_outline</mat-icon>
           </button>
-          <div
-            *ngFor="let quantity of quantities().controls; let i = index"
-            [formGroupName]="i"
-          >
+          <div *ngFor="let quantity of quantities().controls; let i = index" [formGroupName]="i">
             <label>
-              <input type="text" formControlName="qty" class="form-control" placeholder="ENTER THE Firstname"/>
-              <input  type="text" formControlName="qty1" class="form-control"  placeholder="ENTER THE lastname">
+              <input type="text" formControlName="qty" class="form-control" placeholder="ENTER THE Firstname" />
+              <input type="text" formControlName="qty1" class="form-control" placeholder="ENTER THE lastname">
               <button type="button" class="btn" (click)="removeQuantities(i)">
                 <mat-icon>remove_circle_outline</mat-icon>
               </button>
@@ -107,12 +91,7 @@
           the indormations are verified
         </label>
         <br />
-        <button
-          type="button"
-          class="btn btn-success"
-          (click)="add()"
-          [disabled]="!dataform.valid"
-        >
+        <button type="button" class="btn btn-success" (click)="add()" [disabled]="!dataform.valid">
           Submit
         </button>
         <button type="button" class="btn btn-danger" (click)="reseter()">

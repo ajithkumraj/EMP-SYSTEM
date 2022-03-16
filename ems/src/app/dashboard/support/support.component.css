@@ -12,6 +12,12 @@ margin: 5px;
  }
   .aaa{
    font-style: inherit;
-   /* margin-left: 15px;
-   margin-top: 10px; */
   }
+  #icons{
+   margin-left:10px;
+   color:red;
+  }
+  #color{
+    color:green;
+  }
+ 
