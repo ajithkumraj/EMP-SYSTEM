@@ -12,120 +12,53 @@
 <div class="body">
     <h3>{{formmode}}</h3>
     <div class="formcontent">
-    
     <div>
-        <button (click)="show1()" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>General</button>
-        <button (click)="show2()" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Educational</button>
-        <button (click)="show3()" class="btn btn-light"><mat-icon style="color:#51a6ce">check_box</mat-icon>Skillset</button>
-        <button (click)="show4()" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Professional</button>
+      <a href="#GENERAL" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>GENERAL</a> 
+      <a href="#Educational"class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Educational</a> 
+      <a href="#Skillset"class="btn btn-light"><mat-icon style="color:#51a6ce">check_box</mat-icon>Skillset</a> 
+      <a href="#Professional"class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Professional</a>
     </div>
     <form [formGroup]="userform" class="form-group">
       
-      
       <!--general tab from here-->
-        <div *ngIf="div1">
-            <label for="name">
-              Name :
-              <input
-                type="text"
-                formControlName="name"
-                id="name"
-                class="input form-control"
-              /> </label
-            ><br />
-            <label for="age"
-              >Age :
-              <select formControlName="age">
-                <option *ngFor="let option of options" [value]="option">
-                  {{ option }}
-                </option>
-              </select> </label
-            ><br />
-            <label for="gender">
-              Gender :
-              <input
-                type="radio"
-                value="male"
-                formControlName="gender"
-                id="gender"
-              />Male<input
-                type="radio"
-                value="female"
-                formControlName="gender"
-                id="gender"
-              />Female</label
-            ><br />
-            <label for="hobby">
-              HOBBY :
-              <input
-                type="text"
-                formControlName="HOBBY"
-                class="input form-control"
-                id="hobby"
-            /></label>
-            <div formArrayName="quantities">
-              click to add more Hobbies :
-              <button type="button" (click)="addQuantity()" class="btn">
-                <mat-icon>add_circle_outline</mat-icon>
-              </button>
-              <div
-                *ngFor="let quantity of quantities().controls; let i = index"
-                [formGroupName]="i"
-              >
-                <label>
-                  <input type="text" formControlName="qty" class="form-control" placeholder="ENTER THE Firstname"/>
-                  <input  type="text" formControlName="qty1" class="form-control"  placeholder="ENTER THE lastname">
-                  <button type="button" class="btn" (click)="removeQuantities(i)">
-                    <mat-icon>remove_circle_outline</mat-icon>
-                  </button>
-                </label>
-              </div>
-            </div>
-            <label for="check">
-              <input type="checkbox" formControlName="check" class="check-box" />All
-              the indormations are verified
-            </label>
-            <br>
-                    <!--Sandhiya code goes here-->
+        <div *ngIf="div1" id="GENERAL"> 
         <div  id="new"class="row">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35"  fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-          </svg>
-          <h1 class="bi bi-person-fill">Basic Informations</h1><br><br>
+          <h1 class="bi bi-person-fill">
+            <mat-icon>person</mat-icon>Basic Informations</h1>
           </div>
             <div class="row">
               <div class="col">
                 <label id="forms" >First name</label>
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control inp" placeholder="First name" formControlName="firstname">
               </div>
               <div class="col">
                 <label id="forms" >Last name</label>
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control inp" placeholder="Last name" formControlName="lastname">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <label id="forms">Date of Birth</label>
-                <input type="date" class="form-control" placeholder="First name">
+                <input type="date" class="form-control inp" formControlName="dob">
               </div>
               <div class="col">
-                <label for="exampleInputEmail1">Gender</label><br>
+                <label for="exampleInputEmail1">Gender</label>
                 <div class="row">
                 <div class="form-check" class="col">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
+                  <input class="form-check-input" type="radio" name="gender" id="5" value="male" formControlName="gender">
+                  <label class="form-check-label" for="5">
                    Male
                   </label>
                 </div>
                 <div class="form-check" class="col">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
+                  <input class="form-check-input" type="radio" name="gender" id="6" value="female" formControlName="gender">
+                  <label class="form-check-label" for="6">
                     Female
                   </label>
                 </div>
                 <div class="form-check disabled" class="col">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                  <label class="form-check-label" for="exampleRadios3">
+                  <input class="form-check-input" type="radio" name="gender" id="7" value="others" formControlName="gender">
+                  <label class="form-check-label" for="7">
                     Others
                   </label>
                 </div>
@@ -134,125 +67,122 @@
             </div>
             <div class="row">
               <div class="col">
-                <label id="forms">Poisition applied for</label><br>
-                <input class=" dropdown-toggle" type="text" id="dropdownMenuButton" value="Select a Designation" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+                <label>Position Applied For*</label>
+                <select class="form-control inp">
+                  <option>Select a Desgination</option>
+                  <option value=""> Frontend-developer</option>
+                  <option value="">Backend-developer</option>
+                  <option value="">Full-stack developer</option>
+                </select>
               </div>
               <div class="col">
                 <label id="forms">Employee Reference(if any)</label>
-                <input type="text" class="form-control" placeholder="Employee Reference">
+                <input type="text" class="form-control inp" placeholder="Employee Reference" formControlName="empref">
               </div>
             </div>
           <div id="new" class="row">
-          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
-            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
-          </svg>
-          <h1 class="bi bi-person-fill">Contact</h1>
+          <h1>Contact</h1>
           </div>
             <div class="row">
               <div class="col">
                 <div class="col">
                 <label id="forms">Mobile Number</label>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control inp" placeholder="Mobile Phone Number" formControlName="mobilenumber">
               </div>
               </div>
               <div class="col">
                 <div class="col">
                 <label id="forms">Home phone Number</label>
-                <input type="text" class="form-control" placeholder="Home Phone NMumber">
+                <input type="text" class="form-control inp" placeholder="Home Phone umber" formControlName="homenumber">
               </div>
             </div>
             <div class="col">
               <label id="forms">office Number</label>
-              <input type="text" class="form-control" placeholder="office Phone Number">
+              <input type="text" class="form-control inp" placeholder="office Phone Number" formControlName="officenumber">
             </div>
           </div>
           <div class="col">
             <label id="forms">Personal Email ID</label>
-            <input type="text" class="form-control" >
+            <input type="text" class="form-control inp" placeholder="Enter your Email-id" formControlName="email">
           </div>
           <div class="row">
             <div class="col">
               <label id="forms">Present Address</label>
-              <input type="text" class="form-control" >
+              <input type="text" class="form-control" placeholder="Enter your Address" formControlName="presentaddressfull">
             </div>
             <div class="col">
               <label id="forms">Locality</label>
-              <input type="text" class="form-control" placeholder="Locality">
+              <input type="text" class="form-control" placeholder="Locality" formControlName="presentlocality">
             </div>
           </div>
           <div class="row">
             <div class="col">
               <label id="forms">City</label>
-              <input type="text" class="form-control" >
+              <input type="text" class="form-control" placeholder="City" formControlName="presentcity">
             </div>
             <div class="col">
               <label id="forms">Pincode</label>
-              <input type="text" class="form-control" placeholder="Pincode">
+              <input type="text" class="form-control" placeholder="Pincode" formControlName="presentpincode">
             </div>
             </div>
             <div class="row">
               <div class="col">
                 <label id="forms">District</label>
-                <input type="text" class="form-control" placeholder="District" >
+                <input type="text" class="form-control" placeholder="District" formControlName="presentdistrict">
               </div>
               <div class="col">
                 <label id="forms">State</label>
-                <input type="text" class="form-control" placeholder="State">
+                <input type="text" class="form-control" placeholder="State" formControlName="presentstate">
               </div>
               </div>
               <div class="row">
                 <div class="col">
                   <label  id="forms">Country</label>
-                  <input type="text" class="form-control" placeholder="Country" >
+                  <input type="text" class="form-control" placeholder="Country" formControlName="presentcountry">
                 </div>
                 <div class="col">
                   <label id="forms">Landmark</label>
-                  <input type="text" class="form-control" placeholder="Landmark">
+                  <input type="text" class="form-control" placeholder="Landmark" formControlName="presentlandmark">
                 </div>
                 </div>
                 <div class="row">
                   <div class="col">
-                    <label id="forms">Permanent Address is same as present</label>
-                    <input type="text" id="form" class="form-control" placeholder="Tiruvannamalai" >
+                    <label id="forms">Permanent Address is same as present <input type="checkbox" formControlName="permanentaddresscheck"></label>
+                    <input type="text" id="form" class="form-control" placeholder="Enter your permanent address" formControlName="permanentaddressfull" >
                   </div>
                   <div class="col">
-                    <label >id="forms"Landmark</label>
-                    <input type="text" class="form-control" placeholder="Landmark">
+                    <label id="forms">Locality</label>
+                    <input type="text" class="form-control" placeholder="Locality" formControlName="permanentaddresslocality">
                   </div>
                   </div>
                   <div class="row">
                     <div class="col">
                       <label id="forms">City</label>
-                      <input type="text" class="form-control" placeholder="Tiruvannamalai" >
+                      <input type="text" class="form-control" placeholder="City" formControlName="permanentaddresscity">
                     </div>
                     <div class="col">
                       <label id="forms">Pincode</label>
-                      <input type="text" class="form-control" placeholder="Pincode">
+                      <input type="text" class="form-control" placeholder="Pincode" formControlName="permanentaddresspincode">
                     </div>
                     </div>
                     <div class="row">
                       <div class="col">
                         <label id="forms">District</label>
-                        <input type="text" class="form-control" placeholder="District" >
+                        <input type="text" class="form-control" placeholder="District" formControlName="permanentaddressdistrict">
                       </div>
                       <div class="col">
                         <label id="forms">State</label>
-                        <input type="text" class="form-control" placeholder="Pincode">
+                        <input type="text" class="form-control" placeholder="state" formControlName="permanentaddressstate">
                       </div>
                       </div>
                       <div class="row">
                         <div class="col">
                           <label id="forms">Country</label>
-                          <input type="text" class="form-control" placeholder="County" >
+                          <input type="text" class="form-control" placeholder="County" formControlName="permanentaddresscountry">
                         </div>
                         <div class="col">
                           <label id="forms">Landmark</label>
-                          <input type="text" class="form-control" placeholder="Pincode">
+                          <input type="text" class="form-control" placeholder="Landmark" formControlName="permanentaddresslandmark">
                         </div>
                         </div>
                         <div class="row">
@@ -260,15 +190,15 @@
                           <label  id="forms">Do you have a password</label><br>
                           <div class="row">
                           <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                            yes
+                            <input class="form-check-input" id="pass1" name="passwordvalue" type="radio"  value="Yes" formControlName="passwordvalue">
+                            <label class="form-check-label" for="pass1">
+                            YES
                             </label>
                           </div>
                           <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                          no
+                            <input class="form-check-input" type="radio" name="passwordvalue" id="pass2" value="No" formControlName="passwordvalue">
+                            <label class="form-check-label" for="pass2">
+                          NO
                             </label>
                           </div>
                           </div>
@@ -277,172 +207,94 @@
                           <label id="forms">Do you have a visa?</label><br>
                           <div class="row">
                           <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                            yes
-                            </label>
+                            <input class="form-check-input" type="radio" name="visa" id="1" value="yes" formControlName="visa">
+                            <label class="form-check-label" for="1"> YES </label>
                           </div>
                           <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                          no
-                            </label>
+                            <input class="form-check-input" type="radio" name="visa" id="2" value="no" formControlName="visa">
+                            <label class="form-check-label" for="2">NO </label> 
                           </div>
                           </div>
                         </div>
-                        </div>
-                        <div  id="new"class="row">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="35" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                          <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                          <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
-                          <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-                        </svg>
-            <h1 class="bi bi-person-fill">Family Details</h1><br><br>
-            </div>
-              <div class="row">
-              <label for="exampleInputEmail1">Mrital status</label><br>
-              </div>
-              <div class="row">
-                <div class="form-check" class="col">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                single
-                </label>
-                </div>
-                <div class="form-check" class="col">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                 Married
-                </label>
-                </div>
-                <div class="form-check disabled" class="col">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label class="form-check-label" for="exampleRadios3">
-                 Discorced
-                </label>
-                </div>
-                <div class="form-check disabled" class="col">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                  <label class="form-check-label" for="exampleRadios3">
-                  Windowed
-                  </label>
-                </div>
-                  <div class="form-check disabled" class="col">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                  <label class="form-check-label" for="exampleRadios3">
-                   Separated
-                  </label>
+                  <div class="form-group">
+                  <h1 class="bi bi-person-fill"> Family Detatils</h1>
+                  <h2 style="margin-top: 30px;">Marital Status</h2>
+                  <div class="row">
+                    <div class="col pl-2">
+                      <label for="Single" class="rad"><input type="radio" formControlName="maritialstatus" id="Single" name="maritialstatus">Single</label>
+                      <label for="Married" class="rad"><input type="radio" formControlName="maritialstatus" id="Married"name="maritialstatus" >Married</label>
+                      <label for="Divorced"class="rad"><input type="radio" formControlName="maritialstatus" id="Divorced"name="maritialstatus" >Divorced</label>
+                      <label for="Widowed"class="rad"><input type="radio" formControlName="maritialstatus" id="Widowed"name="maritialstatus" >Widowed</label>
+                      <label for="seperated"class="rad"><input type="radio" formControlName="maritialstatus" id="seperated" name="maritialstatus">seperated</label>
+                      <label for="Others"class="rad"><input type="radio" formControlName="maritialstatus" id="Others" name="maritialstatus">Others</label>
+                    </div>
                   </div>
-                  <div class="form-check disabled" class="col">
-                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                  <label class="form-check-label" for="exampleRadios3">
-                   other
-                  </label>
+                  <div class="row">
+                    <div class="col"> <h2>Family Members</h2></div>
+                    <div class="col-1"><button class="btn btn-primary" (click)="addfam()">Add</button></div>
+                    <div>
+                       <table>
+                        <tr>
+                          <th>Name</th>
+                          <th>Relationship</th>
+                          <th>Age</th>
+                          <th>Occuption/Organization</th>
+                          <th>Action</th>
+                        </tr>
+                        <tr formArrayName="family" *ngFor="let fam of userform.controls['family'].value; let i = index">
+                          <ng-container [formGroupName]="i">
+                          <td><input placeholder="name" formControlName="famname"></td>
+                          <td><input placeholder="relationship" formControlName="famrelationship"></td>
+                          <td><input placeholder="age" formControlName="famage"></td>
+                          <td><input placeholder="occuption" formControlName="famoccuption"></td>
+                          <td><button class="btn btn-danger" (click)="removefam(i)">clear</button></td>
+                        </ng-container>
+                        </tr>
+                       </table> 
+                    </div>
+                  </div>
                   </div>
               </div>
         <!--ends here-->
-            <button class="btn btn-primary" (click)="show2()">Next</button>
         </div>
-      
-      
         <!-- Family tab-->
-        <div *ngIf="div2">
-          <div class="internal">
-            <div class="color">
-                <div>
-                    <span class="family">Family Details</span>
-                </div>
-                <h5 style="margin-top: 30px;">Marital Status</h5>
-                <div class="over">
-                    <input type="radio"><span class="list">Single</span>
-                    <input type="radio" class="file"><span class="list">Married</span>
-                    <input type="radio" class="file"><span class="list">Divorced</span>
-                    <input type="radio" class="file"><span class="list">Windowed</span>
-                    <input type="radio" class="file"><span class="list">Separated</span>
-                    <input type="radio" class="file"><span class="list">Other</span>
-                </div>
-                <h5 style="margin-top: 30px;">Family Members</h5>
-                <button type="button" class="btn btn-primary" id="boost">Add</button><br>
-                <div class="name">
-                    <label>Name</label>
-                    <label class="rel">Relationship</label>
-                    <label style="margin-left: 87px;">Age</label>
-                    <label style="margin-left: 244px;">Occupation/Origanization</label>
-                    <label class="rel">Action</label><br>
-                    <input type="text" class="lab">
-                    <select class="select">
-                        <option>--selector--</option>
-                        <option>Father</option>
-                        <option>Mothere</option>
-                        <option>Brother</option>
-                        <option>sister</option>
-                    </select>
-                    <input type="text" class="Age">
-                    <input type="text" style="margin-left: 80px;"><br>
-                    <pre class="field">
-               Name field sholud not be empty
-               Relationship field is required
-               Age field is required
-               Occupation/Organization field is required
-           </pre>
-                    <hr>
-                    <h5 style="margin-top: 30px;">Language Proficiency</h5>
-                    <button type="button" class="btn btn-primary" id="boost">Add</button><br>
-                    <label>Language</label>
-                    <label style="margin-left: 190px;">Can Speack</label>
-                    <label style="margin-left: 87px;">Can Read</label>
-                    <label style="margin-left: 215px;">Can Write</label>
-                    <label style="margin-left: 300px;">Action</label><br>
-                    <div style="margin-top: 20px;">
-                        <select>
-                            <option>--selector--</option>
-                            <option>Tamil</option>
-                            <option>English</option>
-                            <option>Bengali </option>
-                            <option>Hindi</option>
-                            <option>Maithili</option>
-                            <option>Oriya</option>
-                            <option>Punjabi</option>
-                            <option>Sanskrit</option>
-                            <option>Urdu </option>
-                        </select>
-                        <input type="checkbox" style="margin-left: 155px;">
-                        <input type="checkbox" style="margin-left: 155px;">
-                        <input type="checkbox" style="margin-left: 271px;">
-                        <pre class="field">
-               Select Known Language from list
-               Language Proficiency is required
-           </pre>
-                        <hr>
-                        <h5 style="margin-top: 30px;">Education Details</h5>
-                        <div class="mt-4">
-                            <label>course pursued</label>
-                            <label style="margin-left: 677px;"  >course pursued</label><br>
-                            <div class="course">
-                            <select >
-                                <option>Computer Science</option>
-                                <option>MCA</option>
-                                <option>BCA</option>
-                                <option>c.COM</option>
-                            </select></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-            <button class="btn btn-primary" (click)="show1()">BACK</button>
-            <button class="btn btn-primary" (click)="show3()">Next</button>
+        <div *ngIf="div2" id="Educational">
+          <h1>Educational</h1>
         </div>
 
         <!--Educational detatils goes here-->
-        <div *ngIf="div3">
-            <input placeholder="bye" formControlName="name3" class="form-control inp">
-            <button class="btn btn-primary" (click)="show2()">BACK</button>
-            <button class="btn btn-primary" (click)="show4()">Next</button>
+        <div *ngIf="div3" id="Skillset">
+          <h1>Skillset detailes</h1>
+          <button style="text-align:end" class="btn btn-primary" >Add</button>
+           <div>
+             <table class="table">
+               <thead>
+                 <tr>
+                 <th >Skills</th>
+                 <th>Years of experience</th>
+                 <th>Rating</th>
+                 <th>Actions</th>
+                </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>Java</td>
+                   <td>1</td>
+                   <td><select class="form-control inp">
+                     <option>- - Select - - </option>
+                     <option>Bigneer</option>
+                     <option>Intermediate</option>
+                     <option>Advanced</option>
+                   </select></td>
+                   <td><button class="btn btn-success"><mat-icon>edit</mat-icon></button><button class="btn btn-danger"><mat-icon>delete</mat-icon></button></td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
         </div>
 
         <!-- professional detatiles goes here-->
-        <div *ngIf="div4">
+        <div *ngIf="div4" id="Professional">
            <!--Ajith code goes here-->
            <div class="Professional">
             <div class="aaa" style=" margin-left: 15px; margin-top: -10px;">
@@ -459,14 +311,14 @@
              <div class="form-group">
               <label>Company Name</label>
               <br>
-              <input type="text" placeholder="company name" formControlName="name" style="width: 1000px;">
+              <input type="text" placeholder="company name" formControlName="companyname" style="width: 1000px;">
               
              </div>
              <div class="form-group">
               <label>Duration</label>
               <br>
-              <input type="text" placeholder="From" formControlName="from" style="width: 190px;">
-              <input type="text" placeholder="To" formControlName="to" style="margin-left: 20px;width: 190px;"  >
+              <input type="text" placeholder="From" formControlName="durationfrom" style="width: 190px;">
+              <input type="text" placeholder="To" formControlName="durationto" style="margin-left: 20px;width: 190px;"  >
              </div>
              <div class="form-group" style="margin-left: 600px;     margin-top: -50px;">
               <label>Role/Title</label>
@@ -494,40 +346,40 @@
                 Are you physically challenged?
                <br>
                <label>
-                <input type="radio" name="physically" formControlName="physically" value=1 checked>Yes
+                <input type="radio" name="physically" formControlName="physically" value=yes checked>Yes
                </label>
                <label>
-                <input type="radio" name="physically" formControlName="physically" value=0 style="margin-left: 20px;">No
+                <input type="radio" name="physically" formControlName="physically" value=no style="margin-left: 20px;">No
                </label>
                </div>
                <div class="form-group" style="margin-left: 600px; margin-top: -55px;">
                 Have you suffered from any serious illness or surgical ?
                <br>
                <label>
-                <input type="radio" name="illness" formControlName="illness" value=1 checked>Yes
+                <input type="radio" name="illness" formControlName="illness" value=yes checked>Yes
                </label>
                   <label>
-                <input type="radio" name="illness" formControlName="illness" value=0 style="margin-left: 20px;">No
+                <input type="radio" name="illness" formControlName="illness" value=no style="margin-left: 20px;">No
                </label>
                </div>
               <div class="form-group">
                 Have you ever been arrested ?
                <br>
                <label>
-                <input type="radio" name="arrested" formControlName="arrested" value=1 checked>Yes
+                <input type="radio" name="arrested" formControlName="arrested" value=yes checked>Yes
                </label>
                 <label>
-                <input type="radio" name="arrested" formControlName="arrested" value=0 style="margin-left: 20px;">No
+                <input type="radio" name="arrested" formControlName="arrested" value=no style="margin-left: 20px;">No
                </label>
                </div>
               <div class="form-group">
                 Have you ever been considered for employement in OFS ?
                <br>
                <label>
-                <input type="radio" name="OFS" formControlName="OFS" value=1 checked>Yes
+                <input type="radio" name="OFS" formControlName="OFS" value=yes checked>Yes
                </label>
                 <label>
-                <input type="radio" name="OFS" formControlName="OFS" value=0 style="margin-left: 20px;">No
+                <input type="radio" name="OFS" formControlName="OFS" value=no style="margin-left: 20px;">No
                </label>
                </div>
               <hr>
@@ -585,8 +437,7 @@
            </div>
            
            <!--Ajith code ends here-->
-            <button class="btn btn-primary" (click)="show3()">BACK</button>
-            <button type="button" class="btn btn-success" (click)="add()" [disabled]="!userform.valid">
+            <button type="button" class="btn btn-success" (click)="add()" >
               Submit
             </button>
             <button  class="btn btn-danger" (click)="reseter()">
