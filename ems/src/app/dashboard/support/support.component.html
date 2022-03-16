@@ -1,10 +1,21 @@
 <div class="pro">
- <h3>professional details</h3>
+ <div class="aaa" style=" margin-left: 15px; margin-top: -10px;">
+  <mat-icon> business</mat-icon>
+  <div style="margin-left: 45px;
+  margin-top: -15px; margin-bottom: 20px;">
+  Professional Details</div>
+ </div>
+ <div class="add" style="margin-left: 960px;     margin-top: -35px;" >
+  <mat-icon>add_box</mat-icon>
+  <div style="margin-top: -27px;
+  margin-left: 30px;">Add</div>
+ </div>
  <form [formGroup]="register">
   <div class="form-group">
    <label>Company Name</label>
    <br>
    <input type="text" placeholder="company name" formControlName="name" style="width: 1000px;">
+   
   </div>
   <div class="form-group">
    <label>Duration</label>
@@ -28,7 +39,7 @@
    <input type="text" placeholder="Total Years of Experience" formControlName="experience"  style="width: 400px;">
   </div>
   <hr>
-  <h3>Other Details</h3>
+  <div class="aaa">Other Details</div>
   <div class="form-group">
    <label>Additional qualification/Achievements</label>
    <br>
@@ -75,13 +86,13 @@
     </label>
     </div>
    <hr>
-  <h3>References(List any two professional references</h3>
+   <div class="aaa">References(List any two professional references</div>
   <button class="but">Add</button>
   <table class="table">
    <thead class="thead-dark">
     <tr>
      <th scope="col">#</th>
-     <th scope="col">Full name</th>
+     <th scope="col">Full Name</th>
      <th scope="col">Professional Relationship </th>
      <th scope="col">Contact No</th>
      <th scope="col">Business/Occupation</th>
@@ -119,16 +130,12 @@
   <div class="form-group form-check">
    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
    <label for="acceptTerms" class="form-check-label"> I hereby certify that statement I made above is true, compelete
-    and correct to the best of my knoeledge and belief. </label>
+    and correct to the best of my knowledge and belief. </label>
   </div>
   <br>
   <div>
    <!-- <button class="btn btn-secondary" type="reset">Reset</button> -->
    <button class="btn btn-primary mr-1">Submit</button>
   </div>
-
-
-
-
  </form>
 </div>
