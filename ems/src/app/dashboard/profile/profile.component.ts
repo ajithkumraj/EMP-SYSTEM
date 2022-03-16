@@ -8,7 +8,6 @@ import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@ang
 })
 export class ProfileComponent implements OnInit {
   userform!: FormGroup;
-  dataform!: FormGroup;
   users:any = [];
   search:any = '';
   options:any = [];
@@ -16,7 +15,12 @@ export class ProfileComponent implements OnInit {
   constructor(private fb: FormBuilder) {
 
     this.userform=this.fb.group({
-      name:new FormControl(''),
+      name: new FormControl('', [Validators.required, Validators.minLength(1)]),
+      gender: new FormControl('', Validators.required),
+      age: new FormControl('', [Validators.required]),
+      check: new FormControl('', Validators.requiredTrue),
+      HOBBY: new FormControl('', Validators.required),
+      quantities: this.fb.array([]),
       name2:new FormControl(''),
       name3:new FormControl(''),
       name4:new FormControl('')
@@ -25,15 +29,7 @@ export class ProfileComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.dataform = this.fb.group({
-      name: new FormControl('', [Validators.required, Validators.minLength(1)]),
-      gender: new FormControl('', Validators.required),
-      age: new FormControl('', [Validators.required]),
-      check: new FormControl('', Validators.requiredTrue),
-      HOBBY: new FormControl('', Validators.required),
-      quantities: this.fb.array([]),
-    });
-    this.dataform.reset();
+    this.userform.reset();
     this.quantities().clear();
     for (let i:number = 18; i <= 99; i++) {
       this.options.push(i);
@@ -58,7 +54,7 @@ show4(){
   this.div4=true,this.div1=false,this.div3=false,this.div2=false
 }
 quantities(): any {
-  return this.dataform.get('quantities') as FormArray;
+  return this.userform.get('quantities') as FormArray;
 }
 newQuatity(): FormGroup {
   return this.fb.group({
@@ -73,13 +69,13 @@ removeQuantities(i: number) {
   this.quantities().removeAt(i);
 }
 add() {
-  console.log(this.dataform.value);
-  this.users.push(this.dataform.value);
-  this.dataform.reset();
+  console.log(this.userform.value);
+  this.users.push(this.userform.value);
+  this.userform.reset();
   this.quantities().clear();
 }
 reseter() {
-  this.dataform.reset();
+  this.userform.reset();
   this.quantities().clear();
 }
 remove(userDetail: { name: any; }) {
