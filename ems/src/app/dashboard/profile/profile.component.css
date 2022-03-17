@@ -15,14 +15,12 @@
 }
 .formcontent{
     background-color: #ffffff;
+    padding:1rem;
+    line-height: 1rem;
 }
 .inp{
     width: 20rem;
 }
-.Professional{
-    padding: 30px;
-    margin: 10px;
-   }
    .but{
     margin-left: 1400px;
     }
@@ -32,8 +30,6 @@
     }
      .aaa{
       font-style: inherit;
-      /* margin-left: 15px;
-      margin-top: 10px; */
      }
 #new{
   padding-left:20px;
