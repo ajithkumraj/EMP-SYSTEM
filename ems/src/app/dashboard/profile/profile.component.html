@@ -1,482 +1,815 @@
 <div class="page ">
-<div class="header p-1" style="color: white;">
-   <div class=" row">
-        <div class="col">
-            <h3>Carrers</h3>
-        </div>
-        <div class="col" style="text-align:end;">
-            <button style="background:none;border:none;color: white"><mat-icon>account_circle</mat-icon>{{nameofuser}}</button>
-        </div>
+  <div class="header p-1" style="color: white;">
+    <div class=" row">
+      <div class="col">
+        <h3>Carrers</h3>
+      </div>
+      <div class="col" style="text-align:end;">
+        <button style="background:none;border:none;color: white">
+          <mat-icon>account_circle</mat-icon>{{nameofuser}}
+        </button>
+      </div>
     </div>
-</div>
-<div class="body">
+  </div>
+  <div class="body">
     <h3>{{formmode}}</h3>
     <div class="formcontent">
-    <div>
-      <a href="#GENERAL" class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>GENERAL</a> 
-      <a href="#Educational"class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Educational</a> 
-      <a href="#Skillset"class="btn btn-light"><mat-icon style="color:#51a6ce">check_box</mat-icon>Skillset</a> 
-      <a href="#Professional"class="btn btn-light"><mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Professional</a>
-    </div>
-    <form [formGroup]="userform" class="form-group">
-      <!--general tab from here-->
-        <div *ngIf="div1" id="GENERAL"> 
-        <div  id="new"class="row">
-          <h1 class="bi bi-person-fill">
-            <mat-icon>person</mat-icon>Basic Informations</h1>
+      <div>
+        <a href="#GENERAL" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>GENERAL
+        </a>
+        <a href="#Educational" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Educational
+        </a>
+        <a href="#Skillset" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">check_box</mat-icon>Skillset
+        </a>
+        <a href="#Professional" class="btn btn-light">
+          <mat-icon style="color:#51a6ce">fiber_manual_record</mat-icon>Professional
+        </a>
+      </div>
+      <form [formGroup]="userform" class="form-group">
+        <!--general tab from here-->
+        <div *ngIf="div1" id="GENERAL">
+          <div id="new" class="row">
+            <h1 class="bi bi-person-fill">
+              <mat-icon>person</mat-icon>Basic Informations
+            </h1>
           </div>
-            <div class="row">
-              <div class="col">
-                <label id="forms" >First name</label>
-                <input type="text" class="form-control inp" placeholder="First name" formControlName="firstname">
-              </div>
-              <div class="col">
-                <label id="forms" >Last name</label>
-                <input type="text" class="form-control inp" placeholder="Last name" formControlName="lastname">
-              </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">First name</label>
+              <input type="text" class="form-control inp" placeholder="First name" formControlName="firstname">
+              <span *ngIf="userform.get('firstname')?.touched && userform.get('firstname')?.invalid"
+                class="errors">First name is touched</span>
+              <span *ngIf="submitted && userform.get('firstname')?.errors" class="errors">
+                <span *ngIf="userform.get('firstname')?.errors">Required</span>
+              </span>
             </div>
-            <div class="row">
-              <div class="col">
-                <label id="forms">Date of Birth</label>
-                <input type="date" class="form-control inp" formControlName="dob">
-              </div>
-              <div class="col">
-                <label for="exampleInputEmail1">Gender</label>
-                <div class="row">
+            <div class="col">
+              <label id="forms">Last name</label>
+              <input type="text" class="form-control inp" placeholder="Last name" formControlName="lastname">
+              <span *ngIf="userform.get('lastname')?.touched && userform.get('lastname')?.invalid"
+                class="errors">Lastname is touched</span>
+              <span *ngIf="submitted && userform.get('lastname')?.errors" class="errors">
+                <span *ngIf="userform.get('lastname')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">Date of Birth</label>
+              <input type="date" class="form-control inp" formControlName="dob">
+              <!-- <span *ngIf="userform.get('dob')?.touched && userform.get('dob')?.invalid" class="errors"  >dob is touched</span> -->
+              <!-- <span *ngIf="submitted && userform.get('dob')?.errors" class="errors"> -->
+              <!-- <span *ngIf="userform.get('dob')?.errors">Required</span> -->
+              <!-- </span> -->
+            </div>
+            <div class="col">
+              <label for="exampleInputEmail1">Gender</label>
+              <div class="row">
                 <div class="form-check" class="col">
-                  <input class="form-check-input" type="radio" name="gender" id="5" value="male" formControlName="gender">
+                  <input class="form-check-input" type="radio" name="gender" id="5" value="male"
+                    formControlName="gender">
                   <label class="form-check-label" for="5">
-                   Male
+                    Male
+                    <span *ngIf="submitted && userform.get('gender')?.errors" class="errors">
+                      <span *ngIf="userform.get('gender')?.errors"> Required</span>
+                    </span>
                   </label>
                 </div>
                 <div class="form-check" class="col">
-                  <input class="form-check-input" type="radio" name="gender" id="6" value="female" formControlName="gender">
+                  <input class="form-check-input" type="radio" name="gender" id="6" value="female"
+                    formControlName="gender">
                   <label class="form-check-label" for="6">
                     Female
+                    <span *ngIf="submitted && userform.get('gender')?.errors" class="errors">
+                      <span *ngIf="userform.get('gender')?.errors">Required</span>
+                    </span>
                   </label>
                 </div>
                 <div class="form-check disabled" class="col">
-                  <input class="form-check-input" type="radio" name="gender" id="7" value="others" formControlName="gender">
+                  <input class="form-check-input" type="radio" name="gender" id="7" value="others"
+                    formControlName="gender">
                   <label class="form-check-label" for="7">
                     Others
+                    <span *ngIf="submitted && userform.get('gender')?.errors" class="errors">
+                      <span *ngIf="userform.get('gender')?.errors">Required</span>
+                    </span>
                   </label>
                 </div>
-                </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col">
-                <label>Position Applied For*</label>
-                <select class="form-control inp">
-                  <option>Select a Desgination</option>
-                  <option value=""> Frontend-developer</option>
-                  <option value="">Backend-developer</option>
-                  <option value="">Full-stack developer</option>
-                </select>
-              </div>
-              <div class="col">
-                <label id="forms">Employee Reference(if any)</label>
-                <input type="text" class="form-control inp" placeholder="Employee Reference" formControlName="empref">
-              </div>
-            </div>
-          <div id="new" class="row">
-          <h1><mat-icon>home</mat-icon>Contact</h1>
           </div>
-            <div class="row">
+          <div class="row">
+            <div class="col">
+              <label>Position Applied For*</label>
+              <select class="form-control inp">
+                <option>Select a Desgination</option>
+                <option value=""> Frontend-developer</option>
+                <option value="">Backend-developer</option>
+                <option value="">Full-stack developer</option>
+              </select>
+            </div>
+            <div class="col">
+              <label id="forms">Employee Reference(if any)</label>
+              <input type="text" class="form-control inp" placeholder="Employee Reference" formControlName="empref">
+              <span *ngIf="userform.get('empref')?.touched && userform.get('empref')?.invalid" class="errors">empref is
+                touched</span>
+              <span *ngIf="submitted && userform.get('empref')?.errors" class="errors">
+                <span *ngIf="userform.get('empref')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div id="new" class="row">
+            <h1>
+              <mat-icon>home</mat-icon>Contact
+            </h1>
+          </div>
+          <div class="row">
+            <div class="col">
               <div class="col">
-                <div class="col">
                 <label id="forms">Mobile Number</label>
-                <input type="text" class="form-control inp" placeholder="Mobile Phone Number" formControlName="mobilenumber">
+                <input type="text" class="form-control inp" placeholder="Mobile Phone Number"
+                  formControlName="mobilenumber">
+                <span *ngIf="userform.get('mobilenumber')?.touched && userform.get('mobilenumber')?.invalid"
+                  class="errors">mobilenumber is touched</span>
+                <span *ngIf="submitted && userform.get('empref')?.errors" class="errors">
+                  <span *ngIf="userform.get('mobilenumber')?.errors">Required</span>
+                </span>
               </div>
-              </div>
+            </div>
+            <div class="col">
               <div class="col">
-                <div class="col">
                 <label id="forms">Home phone Number</label>
                 <input type="text" class="form-control inp" placeholder="Home Phone umber" formControlName="homenumber">
+                <span *ngIf="userform.get('homenumber')?.touched && userform.get('homenumber')?.invalid"
+                  class="errors">homenumber is touched</span>
+                <span *ngIf="submitted && userform.get('homenumber')?.errors" class="errors">
+                  <span *ngIf="userform.get('homenumber')?.errors">Required</span>
+                </span>
               </div>
             </div>
             <div class="col">
               <label id="forms">office Number</label>
-              <input type="text" class="form-control inp" placeholder="office Phone Number" formControlName="officenumber">
+              <input type="text" class="form-control inp" placeholder="office Phone Number"
+                formControlName="officenumber" maxlength="10">
+              <span *ngIf="userform.get('officenumber')?.touched && userform.get('officenumber')?.invalid"
+                class="errors">officenumber is touched</span>
+              <span *ngIf="submitted && userform.get('officenumber')?.errors" class=" errors">
+                <span *ngIf="userform.get('officenumber')?.errors">Required</span>
+              </span>
             </div>
           </div>
           <div class="col">
             <label id="forms">Personal Email ID</label>
             <input type="text" class="form-control inp" placeholder="Enter your Email-id" formControlName="email">
+            <span *ngIf="userform.get('email')?.touched && userform.get('email')?.invalid" class="errors">email is
+              touched</span>
+            <span *ngIf="submitted && userform.get('email')?.errors" class="errors">
+              <span *ngIf="userform.get('email')?.errors">Required</span>
+            </span>
           </div>
           <div class="row">
             <div class="col">
               <label id="forms">Present Address</label>
-              <input type="text" class="form-control" placeholder="Enter your Address" formControlName="presentaddressfull">
+              <input type="text" class="form-control" placeholder="Enter your Address"
+                formControlName="presentaddressfull">
+              <span *ngIf="userform.get('presentaddressfull')?.touched && userform.get('presentaddressfull')?.invalid"
+                class="errors">presentaddressfull is touched</span>
+              <span *ngIf="submitted && userform.get('presentaddressfull')?.errors" class="errors">
+                <span *ngIf="userform.get('presentaddressfull')?.errors">Required</span>
+              </span>
             </div>
             <div class="col">
               <label id="forms">Locality</label>
               <input type="text" class="form-control" placeholder="Locality" formControlName="presentlocality">
+              <span *ngIf="userform.get('presentlocality')?.touched && userform.get('presentlocality')?.invalid"
+                class="errors">presentlocality is touched</span>
+              <span *ngIf="submitted && userform.get('presentlocality')?.errors" class="errors">
+                <span *ngIf="userform.get('presentlocality')?.errors">Required</span>
+              </span>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <label id="forms">City</label>
               <input type="text" class="form-control" placeholder="City" formControlName="presentcity">
+              <span *ngIf="userform.get('presentcity')?.touched && userform.get('presentcity')?.invalid"
+                class="errors">presentcity is touched</span>
+              <span *ngIf="submitted && userform.get('presentcity')?.errors" class="errors">
+                <span *ngIf="userform.get('presentcity')?.errors">Required</span>
+              </span>
             </div>
             <div class="col">
               <label id="forms">Pincode</label>
               <input type="text" class="form-control" placeholder="Pincode" formControlName="presentpincode">
+              <span *ngIf="userform.get('presentpincode')?.touched && userform.get('presentpincode')?.invalid"
+                class="errors">presentpincode is touched</span>
+              <span *ngIf="submitted && userform.get('presentpincode')?.errors" class="errors">
+                <span *ngIf="userform.get('presentpincode')?.errors">Required</span>
+              </span>
             </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">District</label>
+              <input type="text" class="form-control" placeholder="District" formControlName="presentdistrict">
+              <span *ngIf="userform.get('presentdistrict')?.touched && userform.get('presentdistrict')?.invalid"
+                class="errors">presentdistrict is touched</span>
+              <span *ngIf="submitted && userform.get('presentdistrict')?.errors" class="errors">
+                <span *ngIf="userform.get('presentdistrict')?.errors">Required</span>
+              </span>
             </div>
-            <div class="row">
-              <div class="col">
-                <label id="forms">District</label>
-                <input type="text" class="form-control" placeholder="District" formControlName="presentdistrict">
+            <div class="col">
+              <label id="forms">State</label>
+              <input type="text" class="form-control" placeholder="State" formControlName="presentstate">
+              <span *ngIf="userform.get('presentstate')?.touched && userform.get('presentstate')?.invalid"
+                class="errors">presentstate is touched</span>
+              <span *ngIf="submitted && userform.get('presentstate')?.errors" class="errors">
+                <span *ngIf="userform.get('presentstate')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">Country</label>
+              <input type="text" class="form-control" placeholder="Country" formControlName="presentcountry">
+              <span *ngIf="userform.get('presentcountry')?.touched && userform.get('presentcountry')?.invalid"
+                class="errors">presentcountry is touched</span>
+              <span *ngIf="submitted && userform.get('presentcountry')?.errors" class="errors">
+                <span *ngIf="userform.get('presentcountry')?.errors">Required</span>
+              </span>
+            </div>
+            <div class="col">
+              <label id="forms">Landmark</label>
+              <input type="text" class="form-control" placeholder="Landmark" formControlName="presentlandmark">
+              <span *ngIf="userform.get('presentlandmark')?.touched && userform.get('empref')?.invalid"
+                class="errors">presentlandmark is touched</span>
+              <span *ngIf="submitted && userform.get('presentlandmark')?.errors" class="errors">
+                <span *ngIf="userform.get('presentlandmark')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">Permanent Address is same as present <input type="checkbox"
+                  formControlName="permanentaddressfull"></label>
+              <input type="text" id="form" class="form-control" placeholder="Enter your permanent address"
+                formControlName="permanentaddressfull">
+              <span *ngIf="userform.get('permanentaddressfull')?.touched && userform.get('permanentaddressfull')?.invalid"
+                class="errors">permanentaddressfull is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddressfull')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddressfull')?.errors">Required</span>
+              </span>
+            </div>
+            <div class="col">
+              <label id="forms">Locality</label>
+              <input type="text" class="form-control" placeholder="Locality" formControlName="permanentaddresslocality">
+              <span
+                *ngIf="userform.get('permanentaddresslocality')?.touched && userform.get('permanentaddresslocality')?.invalid"
+                class="errors">permanentaddresslocality is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddresslocality')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddresslocality')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">City</label>
+              <input type="text" class="form-control" placeholder="City" formControlName="permanentaddresscity">
+              <span  *ngIf="userform.get('permanentaddresscity')?.touched && userform.get('permanentaddresscity')?.invalid"
+                class="errors"> permanentaddresscity is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddresscity')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddresscity')?.errors">Required</span>
+              </span>
+            </div>
+            <div class="col">
+              <label id="forms">Pincode</label>
+              <input type="text" class="form-control" placeholder="Pincode" formControlName="permanentaddresspincode">
+              <span
+                *ngIf="userform.get('permanentaddresspincode')?.touched && userform.get('permanentaddresspincode')?.invalid"
+                class="errors">permanentaddresspincode is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddresspincode')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddresspincode')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">District</label>
+              <input type="text" class="form-control" placeholder="District" formControlName="permanentaddressdistrict">
+              <span
+                *ngIf="userform.get('permanentaddressdistrict')?.touched && userform.get('permanentaddressdistrict')?.invalid"
+                class="errors">permanentaddressdistrict is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddressdistrict')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddressdistrict')?.errors">Required</span>
+              </span>
+            </div>
+            <div class="col">
+              <label id="forms">State</label>
+              <input type="text" class="form-control" placeholder="state" formControlName="permanentaddressstate">
+              <span *ngIf="userform.get('permanentaddressstate')?.touched && userform.get('permanentaddressstate')?.invalid"
+                class="errors">permanentaddressstate is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddressstate')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddressstate')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">Country</label>
+              <input type="text" class="form-control" placeholder="County" formControlName="permanentaddresscountry">
+              <span
+                *ngIf="userform.get('permanentaddresscountry')?.touched && userform.get('permanentaddresscountry')?.invalid"
+                class="errors">empref name is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddresscountry')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddresscountry')?.errors">Required</span>
+              </span>
+            </div>
+            <div class="col">
+              <label id="forms">Landmark</label>
+              <input type="text" class="form-control" placeholder="Landmark" formControlName="permanentaddresslandmark">
+              <span *ngIf="userform.get('permanentaddresslandmark')?.touched && userform.get('empref')?.invalid"
+                class="errors">permanentaddresslandmark is touched</span>
+              <span *ngIf="submitted && userform.get('permanentaddresslandmark')?.errors" class="errors">
+                <span *ngIf="userform.get('permanentaddresslandmark')?.errors">Required</span>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label id="forms">Do you have a password</label><br>
+              <div class="row">
+                <div class="form-check" class="col">
+                  <input class="form-check-input" id="pass1" name="passwordvalue" type="radio" value="Yes"
+                    formControlName="passwordvalue">
+                  <label class="form-check-label" for="pass1">
+                    YES
+                    <span *ngIf="submitted && userform.get('passwordvalue')?.errors" class="errors">
+                      <span *ngIf="userform.get('passwordvalue')?.errors">Required</span>
+                    </span>
+                  </label>
+                </div>
+                <div class="form-check" class="col">
+                  <input class="form-check-input" type="radio" name="passwordvalue" id="pass2" value="No"
+                    formControlName="passwordvalue">
+                  <label class="form-check-label" for="pass2">
+                    NO
+                    <span *ngIf="submitted && userform.get('passwordvalue')?.errors" class="errors">
+                      <span *ngIf="userform.get('passwordvalue')?.errors">Required</span>
+                    </span>
+                  </label>
+                </div>
               </div>
-              <div class="col">
-                <label id="forms">State</label>
-                <input type="text" class="form-control" placeholder="State" formControlName="presentstate">
+            </div>
+            <div class="col">
+              <label id="forms">Do you have a visa?</label><br>
+              <div class="row">
+                <div class="form-check" class="col">
+                  <input class="form-check-input" type="radio" name="visa" id="1" value="yes" formControlName="visa">
+                  <label class="form-check-label" for="1"> YES
+                    <span *ngIf="submitted && userform.get('visa')?.errors" class="errors">
+                      <span *ngIf="userform.get('visa')?.errors">Required</span>
+                    </span> </label>
+                </div>
+                <div class="form-check" class="col">
+                  <input class="form-check-input" type="radio" name="visa" id="2" value="no" formControlName="visa">
+                  <label class="form-check-label" for="2">NO </label>
+                  <span *ngIf="submitted && userform.get('visa')?.errors" class="errors">
+                    <span *ngIf="userform.get('visa')?.errors">Required</span>
+                  </span>
+                </div>
               </div>
+            </div>
+            <div class="form-group">
+              <h1 class="bi bi-person-fill">
+                <mat-icon>people</mat-icon>Family Detatils
+              </h1>
+              <h2 style="margin-top: 30px;">Marital Status</h2>
+              <div class="row">
+                <div class="col pl-2">
+                  <label for="Single" class="rad"> </label><input type="radio" formControlName="maritialstatus"
+                    id="Single" name="maritialstatus" value="Single">Single
+                    <span *ngIf="submitted && userform.get('maritialstatus')?.errors" class="errors">
+                      <span *ngIf="userform.get('maritialstatus')?.errors">Required</span>
+                    </span>
+
+                  <label for="Married" class="rad"></label><input type="radio" formControlName="maritialstatus"
+                    id="Married" name="maritialstatus" value="Married">Married
+                    <span *ngIf="submitted && userform.get('maritialstatus')?.errors" class="errors">
+                      <span *ngIf="userform.get('maritialstatus')?.errors">Required</span>
+                    </span>
+                  <label for="Divorced" class="rad"></label><input type="radio" formControlName="maritialstatus"
+                    id="Divorced" name="maritialstatus" value="Divorced">Divorced
+                    <span *ngIf="submitted && userform.get('maritialstatus')?.errors" class="errors">
+                      <span *ngIf="userform.get('maritialstatus')?.errors">Required</span>
+                    </span>
+
+                  <label for="Widowed" class="rad"></label><input type="radio" formControlName="maritialstatus"
+                    id="Widowed" name="maritialstatus" value="Widowed">Widowed
+                    <span *ngIf="submitted && userform.get('maritialstatus')?.errors" class="errors">
+                      <span *ngIf="userform.get('maritialstatus')?.errors">Required</span>
+                    </span>
+                  <label for="seperated" class="rad"></label><input type="radio" formControlName="maritialstatus"
+                    id="seperated" name="maritialstatus" value="seperated">seperated
+                    <span *ngIf="submitted && userform.get('maritialstatus')?.errors" class="errors">
+                      <span *ngIf="userform.get('maritialstatus')?.errors">Required</span>
+                    </span>
+                  <label for="Others" class="rad"></label><input type="radio" formControlName="maritialstatus"
+                    id="Others" name="maritialstatus" value="Others">Others
+                    <span *ngIf="submitted && userform.get('maritialstatus')?.errors" class="errors">
+                      <span *ngIf="userform.get('maritialstatus')?.errors">Required</span>
+                    </span>
+
+                </div>
+              </div>
+              <!--adding the family members-->
+              <div class="row">
+                <div class="col-11">
+                  <h2>Family Members</h2>
+                </div>
+                <div class="col-1"><button class="btn btn-primary" (click)="addfam()">Add</button></div>
               </div>
               <div class="row">
-                <div class="col">
-                  <label  id="forms">Country</label>
-                  <input type="text" class="form-control" placeholder="Country" formControlName="presentcountry">
-                </div>
-                <div class="col">
-                  <label id="forms">Landmark</label>
-                  <input type="text" class="form-control" placeholder="Landmark" formControlName="presentlandmark">
-                </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <label id="forms">Permanent Address is same as present <input type="checkbox" formControlName="permanentaddresscheck"></label>
-                    <input type="text" id="form" class="form-control" placeholder="Enter your permanent address" formControlName="permanentaddressfull" >
-                  </div>
-                  <div class="col">
-                    <label id="forms">Locality</label>
-                    <input type="text" class="form-control" placeholder="Locality" formControlName="permanentaddresslocality">
-                  </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      <label id="forms">City</label>
-                      <input type="text" class="form-control" placeholder="City" formControlName="permanentaddresscity">
-                    </div>
-                    <div class="col">
-                      <label id="forms">Pincode</label>
-                      <input type="text" class="form-control" placeholder="Pincode" formControlName="permanentaddresspincode">
-                    </div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <label id="forms">District</label>
-                        <input type="text" class="form-control" placeholder="District" formControlName="permanentaddressdistrict">
-                      </div>
-                      <div class="col">
-                        <label id="forms">State</label>
-                        <input type="text" class="form-control" placeholder="state" formControlName="permanentaddressstate">
-                      </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <label id="forms">Country</label>
-                          <input type="text" class="form-control" placeholder="County" formControlName="permanentaddresscountry">
-                        </div>
-                        <div class="col">
-                          <label id="forms">Landmark</label>
-                          <input type="text" class="form-control" placeholder="Landmark" formControlName="permanentaddresslandmark">
-                        </div>
-                        </div>
-                        <div class="row">
-                         <div class="col">
-                          <label  id="forms">Do you have a password</label><br>
-                          <div class="row">
-                          <div class="form-check" class="col">
-                            <input class="form-check-input" id="pass1" name="passwordvalue" type="radio"  value="Yes" formControlName="passwordvalue">
-                            <label class="form-check-label" for="pass1">
-                            YES
-                            </label>
-                          </div>
-                          <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="passwordvalue" id="pass2" value="No" formControlName="passwordvalue">
-                            <label class="form-check-label" for="pass2">
-                          NO
-                            </label>
-                          </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <label id="forms">Do you have a visa?</label><br>
-                          <div class="row">
-                          <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="visa" id="1" value="yes" formControlName="visa">
-                            <label class="form-check-label" for="1"> YES </label>
-                          </div>
-                          <div class="form-check" class="col">
-                            <input class="form-check-input" type="radio" name="visa" id="2" value="no" formControlName="visa">
-                            <label class="form-check-label" for="2">NO </label> 
-                          </div>
-                          </div>
-                        </div>
-                  <div class="form-group">
-                  <h1 class="bi bi-person-fill"><mat-icon>people</mat-icon>Family Detatils</h1>
-                  <h2 style="margin-top: 30px;">Marital Status</h2>
-                  <div class="row">
-                    <div class="col pl-2">
-                      <label for="Single" class="rad"><input type="radio" formControlName="maritialstatus" id="Single" name="maritialstatus" value="Single">Single</label>
-                      <label for="Married" class="rad"><input type="radio" formControlName="maritialstatus" id="Married"name="maritialstatus" value="Married" >Married</label>
-                      <label for="Divorced"class="rad"><input type="radio" formControlName="maritialstatus" id="Divorced"name="maritialstatus" value="Divorced">Divorced</label>
-                      <label for="Widowed"class="rad"><input type="radio" formControlName="maritialstatus" id="Widowed"name="maritialstatus" value="Widowed">Widowed</label>
-                      <label for="seperated"class="rad"><input type="radio" formControlName="maritialstatus" id="seperated" name="maritialstatus" value="seperated">seperated</label>
-                      <label for="Others"class="rad"><input type="radio" formControlName="maritialstatus" id="Others" name="maritialstatus" value="Others">Others</label>
-                    </div>
-                  </div>
-                  <!--adding the family members-->
-                  <div class="row">
-                    <div class="col-11"><h2>Family Members</h2></div>
-                    <div class="col-1"><button class="btn btn-primary" (click)="addfam()">Add</button></div>
-                  </div>
-                    <div class="row">
-                       <table style="text-align:center;">
-                        <tr>
-                          <th class="inp" >Name</th>
-                          <th class="inp">Relationship</th>
-                          <th class="inp">Age</th>
-                          <th class="inp">Occuption/Organization</th>
-                          <th class="inp">Action</th>
-                        </tr>
-                        <tr formArrayName="family" *ngFor="let fam of userform.controls['family'].value; let i = index" style="text-align:center">
-                          <ng-container [formGroupName]="i">
-                          <td><input placeholder="name" formControlName="famname" class="form-control"></td>
-                          <td><input placeholder="relationship" formControlName="famrelationship" class="form-control"></td>
-                          <td><input placeholder="age" formControlName="famage" class="form-control"></td>
-                          <td><input placeholder="occuption" formControlName="famoccuption" class="form-control"></td>
-                          <td><button class="btn btn-danger" (click)="removefam(i)" style="color:black">clear</button></td>
-                        </ng-container>
-                        </tr>
-                       </table> 
-                    </div>
-                  </div>
-                  <!--Adding the language for general tab-->
-                  <div class="row">
-                    <div class="col-11"><h2>Language Proficiency:</h2></div>
-                    <div class="col-1"><button class="btn btn-primary" (click)="addlang()">Add</button></div>
-                  </div>
-                    <div class="row">
-                       <table style="text-align:center">
-                        <tr>
-                          <th class="inp">Language</th>
-                          <th class="inp">Can Sseak</th>
-                          <th class="inp">Can read</th>
-                          <th class="inp">Can write</th>
-                          <th class="inp">Action</th>
-                        </tr>
-                        <tr formArrayName="language" *ngFor="let langs of userform.controls['language'].value; let i = index" style="text-align:center">
-                          <ng-container [formGroupName]="i">
-                          <td><input formControlName="languagename" class="form-control" type="text"></td>
-                          <td><input formControlName="canspeak"  type="checkbox"></td>
-                          <td><input formControlName="canread" type="checkbox" ></td>
-                          <td><input formControlName="canwrite"  type="checkbox"></td>
-                          <td><button class="btn btn-danger" (click)="removelang(i)" style="color:black">clear</button></td>
-                        </ng-container>
-                        </tr>
-                       </table> 
-                    </div>
+                <table style="text-align:center;">
+                  <tr>
+                    <th class="inp">Name</th>
+                    <th class="inp">Relationship</th>
+                    <th class="inp">Age</th>
+                    <th class="inp">Occuption/Organization</th>
+                    <th class="inp">Action</th>
+                  </tr>
+                  <tr formArrayName="family" *ngFor="let fam of userform.controls['family'].value; let i = index"
+                    style="text-align:center">
+                    <ng-container [formGroupName]="i">
+                      <td><input placeholder="name" formControlName="famname" class="form-control"></td>
+                      <td><input placeholder="relationship" formControlName="famrelationship" class="form-control"></td>
+                      <td><input placeholder="age" formControlName="famage" class="form-control"></td>
+                      <td><input placeholder="occuption" formControlName="famoccuption" class="form-control"></td>
+                      <td><button class="btn btn-danger" (click)="removefam(i)" style="color:black">clear</button></td>
+                    </ng-container>
+                  </tr>
+                </table>
               </div>
+            </div>
+            <!--Adding the language for general tab-->
+            <div class="row">
+              <div class="col-11">
+                <h2>Language Proficiency:</h2>
+              </div>
+              <div class="col-1"><button class="btn btn-primary" (click)="addlang()">Add</button></div>
+            </div>
+            <div class="row">
+              <table style="text-align:center">
+                <tr>
+                  <th class="inp">Language</th>
+                  <th class="inp">Can Sseak</th>
+                  <th class="inp">Can read</th>
+                  <th class="inp">Can write</th>
+                  <th class="inp">Action</th>
+                </tr>
+                <tr formArrayName="language" *ngFor="let langs of userform.controls['language'].value; let i = index"
+                  style="text-align:center">
+                  <ng-container [formGroupName]="i">
+                    <td><input formControlName="languagename" class="form-control" type="text"></td>
+                    <td><input formControlName="canspeak" type="checkbox"></td>
+                    <td><input formControlName="canread" type="checkbox"></td>
+                    <td><input formControlName="canwrite" type="checkbox"></td>
+                    <td><button class="btn btn-danger" (click)="removelang(i)" style="color:black">clear</button></td>
+                  </ng-container>
+                </tr>
+              </table>
+            </div>
+          </div>
         </div>
         <!-- Educational detatiles goes here-->
         <div *ngIf="div2" id="Educational">
           <div class="row">
-            <div class="col"> <h1><mat-icon>school</mat-icon>Educational Detailes :</h1></div>
+            <div class="col">
+              <h1>
+                <mat-icon>school</mat-icon>Educational Detailes :
+              </h1>
+            </div>
             <div class="col-1"><button class="btn btn-primary" (click)="addedu()">Add</button></div>
-            <div  formArrayName="education" *ngFor="let u of userform.controls['education'].value; let i=index">
+            <div formArrayName="education" *ngFor="let u of userform.controls['education'].value; let i=index">
               <ng-container [formGroupName]="i">
                 <div class="row">
-                  <div class="col-6" > 
-                    <h1>Course Pursed</h1> 
+                  <div class="col-6">
+                    <h1>Course Pursed</h1>
                     <select class="form-control" formControlName="cousepursed">
-                    <option value='' selected>- - Select - -</option>
-                    <option value='sslc'>SSLC</option>
-                    <option value='hsc'>HSC</option>
-                    <option value='diploma'>DIPLOMA</option>
-                    <option value='arts'>ARTS</option>
-                    <option value='engineering'>ENGINEERING</option>
-                  </select>
+                      <option value='' selected>- - Select - -</option>
+                      <option value='sslc'>SSLC</option>
+                      <option value='hsc'>HSC</option>
+                      <option value='diploma'>DIPLOMA</option>
+                      <option value='arts'>ARTS</option>
+                      <option value='engineering'>ENGINEERING</option>
+                    </select>
                   </div>
                   <div class="col-6">
                     <h1>Name of the Educational Institution</h1>
-                    <input formControlName="collegename" placeholder="Name of the Institution"  class="form-control">
+                    <input formControlName="collegename" placeholder="Name of the Institution" class="form-control">
+                    <span *ngIf="userform.get('collegename')?.touched && userform.get('empref')?.invalid"
+                      class="errors">collegename is touched</span>
+                    <span *ngIf="submitted && userform.get('collegename')?.errors" class="errors">
+                      <span *ngIf="userform.get('v')?.errors">Required</span>
+                    </span>
                   </div>
-            </div>
+                </div>
                 <div class="row">
                   <div class="col-6">
                     <h1>Duration</h1>
                     <div class="row">
-                      <div class="col-6"> <input formControlName="durationfrom" placeholder="From"  class="form-control" type="date"> </div>
-                      <div class="col-6"> <input formControlName="durationto" placeholder="To"  class="form-control" type="date"> </div>
+                      <div class="col-6"> <input formControlName="durationfrom" placeholder="From" class="form-control"
+                          type="date"> </div>
+                      <span *ngIf="userform.get('durationfrom')?.touched && userform.get('empref')?.invalid"
+                        class="errors">durationfrom is touched</span>
+                      <span *ngIf="submitted && userform.get('durationfrom')?.errors" class="errors">
+                        <span *ngIf="userform.get('durationfrom')?.errors">Required</span>
+                      </span>
+                      <div class="col-6"> <input formControlName="durationto" placeholder="To" class="form-control"
+                          type="date"> </div>
+                      <span *ngIf="userform.get('durationto')?.touched && userform.get('empref')?.invalid"
+                        class="errors">durationto is touched</span>
+                      <span *ngIf="submitted && userform.get('durationto')?.errors" class="errors">
+                        <span *ngIf="userform.get('durationto')?.errors">Required</span>
+                      </span>
                     </div>
                   </div>
-              <div class="col-6">
-                <h1>CGPA obtained</h1>
-                <input formControlName="cgpa" placeholder="CGPA obtained"  class="form-control">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col" style="text-align:end"><button class="btn btn-danger" (click)="removeedu(i)">Clear</button></div>
-            </div>
-            </ng-container>
+                  <div class="col-6">
+                    <h1>CGPA obtained</h1>
+                    <input formControlName="cgpa" placeholder="CGPA obtained" class="form-control">
+                    <span *ngIf="userform.get('cgpa')?.touched && userform.get('cgpa')?.invalid" class="errors">cgpa is
+                      touched</span>
+                    <span *ngIf="submitted && userform.get('cgpa')?.errors" class="errors">
+                      <span *ngIf="userform.get('cgpa')?.errors">Required</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col" style="text-align:end"><button class="btn btn-danger"
+                      (click)="removeedu(i)">Clear</button></div>
+                </div>
+              </ng-container>
             </div>
           </div>
         </div>
         <!--Skillset detatils goes here-->
         <div *ngIf="div3" id="Skillset">
           <div class="row">
-            <div class="col"><h1><mat-icon>book</mat-icon> Skillset Detailes :</h1></div>
+            <div class="col">
+              <h1>
+                <mat-icon>book</mat-icon> Skillset Detailes :
+              </h1>
+            </div>
             <div class="col-1"><button class="btn btn-primary" (click)="addskill()">Add</button></div>
             <div>
               <table style="text-align:center;">
-               <tr>
-                 <th class="inp" >Skill</th>
-                 <th class="inp">Years of Experience</th>
-                 <th class="inp">Rating</th>
-                 <th class="inp">Action</th>
-               </tr>
-               <tr formArrayName="skillset" *ngFor="let d of userform.controls['skillset'].value; let i = index" style="text-align:center">
-                 <ng-container [formGroupName]="i">
-                 <td><input  formControlName="skills" class="form-control" type="text"></td>
-                 <td><input  formControlName="yearofexp" class="form-control" type="number" min="0" max="99"></td>
-                 <td>
-                   <select formControlName="rating" class="form-control">
-                     <option value="">--select--</option>
-                     <option value="Begineer">Begineer</option>
-                     <option value="Intermediate">Intermediate</option>
-                     <option value="Advanced">Advanced</option>
-                     <option value="Expert">Expert</option>
-                    </select></td>
-                 <td><button class="btn btn-danger" (click)="removeskill(i)" style="color:black">clear</button></td>
-               </ng-container>
-               </tr>
-              </table> 
-           </div>
+                <tr>
+                  <th class="inp">Skill</th>
+                  <th class="inp">Years of Experience</th>
+                  <th class="inp">Rating</th>
+                  <th class="inp">Action</th>
+                </tr>
+                <tr formArrayName="skillset" *ngFor="let d of userform.controls['skillset'].value; let i = index"
+                  style="text-align:center">
+                  <ng-container [formGroupName]="i">
+                    <td><input formControlName="skills" class="form-control" type="text"></td>
+                    <td><input formControlName="yearofexp" class="form-control" type="number" min="0" max="99"></td>
+                    <td>
+                      <select formControlName="rating" class="form-control">
+                        <option value="">--select--</option>
+                        <option value="Begineer">Begineer</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Expert">Expert</option>
+                      </select>
+                    </td>
+                    <td><button class="btn btn-danger" (click)="removeskill(i)" style="color:black">clear</button></td>
+                  </ng-container>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
         <!-- professional detatiles goes here-->
         <div *ngIf="div4" id="Professional">
-           <div class="row">
-            <div class="col"> <h1><mat-icon> business</mat-icon>Professional Details</h1></div>
+          <div class="row">
+            <div class="col">
+              <h1>
+                <mat-icon> business</mat-icon>Professional Details
+              </h1>
+            </div>
             <div class="col-1"><button class="btn btn-primary" (click)="addprof()">Add</button></div>
           </div>
-            <div  formArrayName="profession" *ngFor="let e of userform.controls['profession'].value; let i=index">
-              <ng-container [formGroupName]="i">
-                <div class="row">
-                  <div class="col" > <h1>Company Name</h1><input class="form-control" formControlName="companyname"></div>  
+          <div formArrayName="profession" *ngFor="let e of userform.controls['profession'].value; let i=index">
+            <ng-container [formGroupName]="i">
+              <div class="row">
+                <div class="col">
+                  <h1>Company Name</h1><input class="form-control" formControlName="companyname">
                 </div>
-                <div class="row">
-                  <div class="col-6">
-                    <h1>Duration</h1>
-                    <div class="row">
-                      <div class="col-6"> <input formControlName="compfrom" placeholder="From"  class="form-control" type="date"> </div>
-                      <div class="col-6"> <input formControlName="compto" placeholder="To"  class="form-control" type="date"> </div>
-                    </div>
+                <span *ngIf="userform.get('companyname')?.touched && userform.get('companyname')?.invalid"
+                  class="errors">companyname is touched</span>
+                <span *ngIf="submitted && userform.get('companyname')?.errors" class="errors">
+                  <span *ngIf="userform.get('companyname')?.errors">Required</span>
+                </span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <h1>Duration</h1>
+                  <div class="row">
+                    <div class="col-6"> <input formControlName="compfrom" placeholder="From" class="form-control"
+                        type="date"> </div>
+                    <span *ngIf="userform.get('compfrom')?.touched && userform.get('compfrom')?.invalid"
+                      class="errors">compfrom is touched</span>
+                    <span *ngIf="submitted && userform.get('compfrom')?.errors" class="errors">
+                      <span *ngIf="userform.get('compfrom')?.errors">Required</span>
+                    </span>
+                    <div class="col-6"> <input formControlName="compto" placeholder="To" class="form-control"
+                        type="date"> </div>
+                    <span *ngIf="userform.get('compto')?.touched && userform.get('compto')?.invalid"
+                      class="errors">compto is touched</span>
+                    <span *ngIf="submitted && userform.get('compto')?.errors" class="errors">
+                      <span *ngIf="userform.get('compto')?.errors">Required</span>
+                    </span>
                   </div>
-                  </div>
+                </div>
+              </div>
               <div class="col-6">
                 <h1>Role/Title</h1>
-                <input formControlName="comprole" placeholder="Designation"  class="form-control">
+                <input formControlName="comprole" placeholder="Designation" class="form-control">
+                <span *ngIf="userform.get('comprole')?.touched && userform.get('comprole')?.invalid"
+                  class="errors">comprole is touched</span>
+                <span *ngIf="submitted && userform.get('comprole')?.errors" class="errors">
+                  <span *ngIf="userform.get('comprole')?.errors">Required</span>
+                </span>
               </div>
-            <div class="row">
-              <div class="col-6">
-                <h1>Reason for change</h1> <input placeholder="Reason for change" formControlName="reasonforchange" class="form-control"> 
+              <div class="row">
+                <div class="col-6">
+                  <h1>Reason for change</h1> <input placeholder="Reason for change" formControlName="reasonforchange"
+                    class="form-control">
+                  <span *ngIf="userform.get('reasonforchange')?.touched && userform.get('reasonforchange')?.invalid"
+                    class="errors">reasonforchange is touched</span>
+                  <span *ngIf="submitted && userform.get('reasonforchange')?.errors" class="errors">
+                    <span *ngIf="userform.get('reasonforchange')?.errors">Required</span>
+                  </span>
+                </div>
+                <div class="col-6">
+                  <h1>Total years of experience</h1> <input type="number" min=0 placeholder="Total years of experience"
+                    class="form-control" formControlName="totalyearsofexp">
+                  <span *ngIf="userform.get('totalyearsofexp')?.touched && userform.get('totalyearsofexp')?.invalid"
+                    class="errors">totalyearsofexp is touched</span>
+                  <span *ngIf="submitted && userform.get('totalyearsofexp')?.errors" class="errors">
+                    <span *ngIf="userform.get('totalyearsofexp')?.errors">Required</span>
+                  </span>
+                </div>
               </div>
-              <div class="col-6">
-                <h1>Total years of experience</h1> <input type="number" min=0 placeholder="Total years of experience" class="form-control" formControlName="totalyearsofexp"> 
+              <div class="row">
+                <div class="col" style="text-align:end"><button class="btn btn-danger"
+                    (click)="removeprof(i)">Clear</button></div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col" style="text-align:end"><button class="btn btn-danger" (click)="removeprof(i)">Clear</button></div>
-            </div>
             </ng-container>
-            </div>
-           <hr>
-           <div class="row">
+          </div>
+          <hr>
+          <div class="row">
             <h1>Other Detatiles :</h1>
-           </div>
-           <div class="row">
-             <div class="col">
+          </div>
+          <div class="row">
+            <div class="col">
               <h2>Additional qualification/Achievements :</h2>
-              <textarea formControlName="qualification" class="form-control inp" ></textarea>
-             </div>
-           </div>
-           <div class="row">
+              <textarea formControlName="qualification" class="form-control inp"></textarea>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-6">
               <h2> Are you physically challenged?</h2>
-              <input class="form-check-input" type="radio" name="physically" id="15" value="yes" formControlName="physically">
-              <label class="form-check-label" for="15"> YES</label>
-              <input class="form-check-input" type="radio" name="physically" id="16" value="no" formControlName="physically">
-              <label class="form-check-label" for="16"> NO</label>
-            </div><div class="col-6">
+              <input class="form-check-input" type="radio" name="physically" id="15" value="yes"
+                formControlName="physically">
+              <label class="form-check-label" for="15"> YES
+                <span *ngIf="userform.get('physically')?.touched && userform.get('physically')?.invalid"
+                  class="errors">physically is touched</span>
+                <span *ngIf="submitted && userform.get('physically')?.errors" class="errors">
+                  <span *ngIf="userform.get('physically')?.errors">Required</span>
+                </span></label>
+              <input class="form-check-input" type="radio" name="physically" id="16" value="no"
+                formControlName="physically">
+              <label class="form-check-label" for="16"> NO
+                <span *ngIf="userform.get('physically')?.touched && userform.get('physically')?.invalid"
+                  class="errors">empref name is touched</span>
+                <span *ngIf="submitted && userform.get('physically')?.errors" class="errors">
+                  <span *ngIf="userform.get('physically')?.errors">Required</span>
+                </span> </label>
+            </div>
+            <div class="col-6">
               <h2>Have you suffered from any serious illness or surgical ?</h2>
-              <input class="form-check-input" type="radio" name="illness" id="illness1" value="yes" formControlName="illness">
-              <label class="form-check-label" for="illness1"> YES</label>
-              <input class="form-check-input" type="radio" name="illness" id="illness2" value="no" formControlName="illness">
-              <label class="form-check-label" for="illness2"> NO</label>
+              <input class="form-check-input" type="radio" name="illness" id="illness1" value="yes"
+                formControlName="illness">
+              <label class="form-check-label" for="illness1"> YES
+                <span *ngIf="userform.get('illness')?.touched && userform.get('illness')?.invalid"
+                  class="errors">illness is touched</span>
+                <span *ngIf="submitted && userform.get('illness')?.errors" class="errors">
+                  <span *ngIf="userform.get('illness')?.errors">Required</span>
+                </span></label>
+              <input class="form-check-input" type="radio" name="illness" id="illness2" value="no"
+                formControlName="illness">
+              <label class="form-check-label" for="illness2"> NO
+                <span *ngIf="userform.get('illness')?.touched && userform.get('illness')?.invalid"
+                  class="errors">illness is touched</span>
+                <span *ngIf="submitted && userform.get('illness')?.errors" class="errors">
+                  <span *ngIf="userform.get('illness')?.errors">Required</span>
+                </span></label>
             </div>
-           </div> 
-           <div class="row">
-             <div class="col">
-                   <h2>  Have you ever been arrested ?</h2>
-                  <input class="form-check-input" type="radio" name="arrested" id="arrested1" value="yes" formControlName="arrested">
-                  <label class="form-check-label" for="arrested1"> YES</label>
-                  <input class="form-check-input" type="radio" name="arrested" id="arrested2" value="no" formControlName="arrested">
-                  <label class="form-check-label" for="arrested2"> NO</label>
-             </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2> Have you ever been arrested ?</h2>
+              <input class="form-check-input" type="radio" name="arrested" id="arrested1" value="yes"
+                formControlName="arrested">
+              <label class="form-check-label" for="arrested1"> YES <span
+                  *ngIf="userform.get('arrested')?.touched && userform.get('arrested')?.invalid" class="errors">arrested
+                  is touched</span>
+                <span *ngIf="submitted && userform.get('arrested')?.errors" class="errors">
+                  <span *ngIf="userform.get('arrested')?.errors">Required</span>
+                </span></label>
+              <label class="form-check-label" for="arrested2"> NO
+                <input class="form-check-input" type="radio" name="arrested" id="arrested2" value="no"
+                  formControlName="arrested">
+                <span *ngIf="userform.get('arrested')?.touched && userform.get('arrested')?.invalid"
+                  class="errors">arrested is touched</span>
+                <span *ngIf="submitted && userform.get('arrested')?.errors" class="errors">
+                  <span *ngIf="userform.get('arrested')?.errors">Required</span>
+                </span></label>
             </div>
-            <div class="row">
-              <div class="col">
-                 <h2>Have you ever been considered for employement in OFS ?</h2>
-                <input class="form-check-input" type="radio" name="ofs" id="OFS1" value="yes" formControlName="ofs">
-                <label class="form-check-label" for="OFS1"> YES</label>
-                <input class="form-check-input" type="radio" name="ofs" id="OFS2" value="no" formControlName="ofs">
-                <label class="form-check-label" for="OFS2"> NO</label>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h2>Have you ever been considered for employement in OFS ?</h2>
+              <input class="form-check-input" type="radio" name="ofs" id="OFS1" value="yes" formControlName="ofs">
+              <label class="form-check-label" for="OFS1"> YES</label>
+              <span *ngIf="userform.get('ofs')?.touched && userform.get('ofs')?.invalid" class="errors">ofs is
+                touched</span>
+              <span *ngIf="submitted && userform.get('ofs')?.errors" class="errors">
+                <span *ngIf="userform.get('ofs')?.errors">Required</span>
+              </span>
+              <input class="form-check-input" type="radio" name="ofs" id="OFS2" value="no" formControlName="ofs">
+              <label class="form-check-label" for="OFS2"> NO
+                <span *ngIf="userform.get('ofs')?.touched && userform.get('ofs')?.invalid" class="errors">ofs is
+                  touched</span>
+                <span *ngIf="submitted && userform.get('ofs')?.errors" class="errors">
+                  <span *ngIf="userform.get('ofs')?.errors">Required</span>
+                </span></label>
             </div>
-            <!--starts here-->
-            <div class="row">
-              <div class="col"><h1>Refrences (List any two professional refrences)</h1></div>
-              <div class="col-1"><button class="btn btn-primary" (click)="addref()">Add</button></div>
-              <div>
-                <table style="text-align:center;">
-                 <tr>
-                   <th class="inp" >Full Name</th>
-                   <th class="inp">Professional Relationship</th>
-                   <th class="inp">Contact No</th>
-                   <th class="inp">Business/Occupation</th>
-                   <th class="inp">Action</th>
-                 </tr>
-                 <tr formArrayName="refrence" *ngFor="let z of userform.controls['refrence'].value; let i = index" style="text-align:center">
-                   <ng-container [formGroupName]="i">
-                   <td><input  formControlName="refname" class="form-control" type="text"></td>
-                   <td><input  formControlName="personalrelationship" class="form-control" type="text"></td>
-                   <td><input formControlName="contactno" class="form-control"></td>    
-                   <td><input formControlName="business" class="form-control"></td>
-                   <td><button class="btn btn-danger" (click)="removeref(i)" style="color:black">clear</button></td>
-                 </ng-container>
-                 </tr>
-                </table> 
-             </div>
+          </div>
+          <!--starts here-->
+          <div class="row">
+            <div class="col">
+              <h1>Refrences (List any two professional refrences)</h1>
             </div>
-            <!--ends here-->
-             <div class="form-group form-check">
-              <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
-              <label for="acceptTerms" class="form-check-label"> I hereby certify that statement I made above is true, compelete
-               and correct to the best of my knowledge and belief. </label>
-             </div>
-             <br>
-             <button type="button" class="btn btn-success" (click)="add()" >
-              Submit
-            </button>
-            <button  class="btn btn-danger" (click)="reseter()">
-              Reset
-            </button>
-           </div>    
-    </form>
-</div>
-</div>
+            <div class="col-1"><button class="btn btn-primary" (click)="addref()">Add</button></div>
+            <div>
+              <table style="text-align:center;">
+                <tr>
+                  <th class="inp">Full Name</th>
+                  <th class="inp">Professional Relationship</th>
+                  <th class="inp">Contact No</th>
+                  <th class="inp">Business/Occupation</th>
+                  <th class="inp">Action</th>
+                </tr>
+                <tr formArrayName="refrence" *ngFor="let z of userform.controls['refrence'].value; let i = index"
+                  style="text-align:center">
+                  <ng-container [formGroupName]="i">
+                    <td><input formControlName="refname" class="form-control" type="text"></td>
+                    <td><input formControlName="personalrelationship" class="form-control" type="text"></td>
+                    <td><input formControlName="contactno" class="form-control"></td>
+                    <td><input formControlName="business" class="form-control"></td>
+                    <td><button class="btn btn-danger" (click)="removeref(i)" style="color:black">clear</button></td>
+                  </ng-container>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <!--ends here-->
+          <div class="form-group form-check">
+            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" />
+            <span *ngIf="submitted && userform.get('ofs')?.errors" class="errors">
+              <span *ngIf="userform.get('acceptTerms')?.errors">acceptTerms is required</span>
+            </span>
+            <label for="acceptTerms" class="form-check-label"> I hereby certify that statement I made above is true,
+              compelete
+              and correct to the best of my knowledge and belief. </label>
+          </div>
+          <br>
+          <button type="button" class="btn btn-success" (click)="add()">
+            Submit
+          </button>
+
+          <!-- <button (click)=" submit()" class="btn btn-primary">Submit</button> -->
+
+          <button class="btn btn-danger" (click)="reseter()">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

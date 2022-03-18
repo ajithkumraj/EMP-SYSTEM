@@ -1,1 +1,11 @@
 <p>support works!</p>
+<div>
+ <form  [formGroup]="userFormGroup">
+   <div class="form-group">
+     <label>Phone Number</label>
+     <input type="text" formControlName="phoneNumber" class="form-control"  />
+<small class="form-text text-danger" *ngIf="userFormGroup.controls.phoneNumber.errors">{{userFormGroup.controls.phoneNumber.errors.onlyDigit.message}}<br/></small>	
+   </div>
+   <button [disabled]="!userFormGroup.valid" class="btn btn-primary">Submit</button>
+ </form>
+</div>

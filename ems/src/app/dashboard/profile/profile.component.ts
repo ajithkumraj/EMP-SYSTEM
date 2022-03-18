@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ApiService } from 'src/app/service files/api.service';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
+
 
 
 @Component({
@@ -17,22 +19,25 @@ export class ProfileComponent implements OnInit {
   div4=true
   userform!: FormGroup;
 
+  submitted: boolean = false;
+ 
   constructor(private fb: FormBuilder,public api:ApiService) {
   
     this.userform=this.fb.group({
-      firstname: new FormControl('', [Validators.required, Validators.minLength(2)]), 
-      lastname: new FormControl('', [Validators.required, Validators.minLength(1)]),
-      dob: new FormControl('', [Validators.required]),
+      
+      firstname: new FormControl('', [Validators.required, ]), 
+      lastname: new FormControl('', [Validators.required,  ]),
+      dob: new FormControl('', [Validators.required,    ]),
       gender: new FormControl('', Validators.required),
       empref: new FormControl('', Validators.required),
-      mobilenumber: new FormControl('', Validators.required),
-      homenumber: new FormControl('', Validators.required),
-      officenumber: new FormControl('', Validators.required),
+      mobilenumber: new FormControl('', [Validators.required,   ]),
+      homenumber: new FormControl('', [Validators.required, ]),
+      officenumber:['', RxwebValidators.pattern({expression:{'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/} })], 
       email: new FormControl('', Validators.required),
       presentaddressfull: new FormControl('', Validators.required),
       presentlocality: new FormControl('', Validators.required),
       presentcity: new FormControl('', Validators.required),
-      presentpincode: new FormControl('', Validators.required),
+      presentpincode: new FormControl('',  [Validators.required,  ]),  
       presentdistrict: new FormControl('', Validators.required),
       presentstate: new FormControl('', Validators.required),
       presentcountry: new FormControl('', Validators.required),
@@ -41,7 +46,7 @@ export class ProfileComponent implements OnInit {
       permanentaddressfull: new FormControl('', Validators.required),
       permanentaddresslocality: new FormControl('', Validators.required),
       permanentaddresscity: new FormControl('', Validators.required),
-      permanentaddresspincode: new FormControl('', Validators.required),
+      permanentaddresspincode: new FormControl('',  [Validators.required,  ]),  
       permanentaddressdistrict: new FormControl('', Validators.required),
       permanentaddressstate: new FormControl('', Validators.required),
       permanentaddresscountry: new FormControl('', Validators.required),
@@ -78,6 +83,8 @@ let userdata = this.userform.value
 console.log(userdata)
 this.api.create(userdata)
 this.userform.reset();
+this.submitted = true;
+
 }
 //reset button form
 reseter() {
@@ -158,7 +165,7 @@ removeprof(i:number){
   this.profession().removeAt(i)
 }
 //refrence
-refrence(){
+refrence(){ debugger
   return this.userform.get('refrence') as FormArray
 }
 addref(){
@@ -172,4 +179,7 @@ addref(){
 removeref(i:number){
   this.refrence().removeAt(i)
 }
+
+
+ 
 }

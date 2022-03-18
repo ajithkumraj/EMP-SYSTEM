@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { ReactiveFormConfig, RxwebValidators } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-support',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupportComponent implements OnInit {
 
-  constructor() { }
+  userFormGroup: FormGroup | any;
 
-  ngOnInit(): void {
-  }
+	constructor(
+        private formBuilder: FormBuilder )
+	{ }
 
+    ngOnInit() {
+        this.userFormGroup = this.formBuilder.group({
+            phoneNumber:['', RxwebValidators.pattern({expression:{'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/} })], 
+        });
+        ReactiveFormConfig.set({"validationMessage":{"onlyDigit":"Input does not match the pattern requirements"}});
+    }
 }
