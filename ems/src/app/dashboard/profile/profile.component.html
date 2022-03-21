@@ -36,6 +36,28 @@
               <mat-icon>person</mat-icon>Basic Informations
             </h1>
           </div>
+
+
+
+
+
+
+<!-- 
+          <div>
+               <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" formControlName="phoneNumber" class="form-control"  />
+           <small class="form-text text-danger" *ngIf="userform.controls.officenumber.errors">{{userform.controls.officenumber.errors.onlyDigit.message}}<br/></small>	
+              </div>
+              <button [disabled]="!userform.valid" class="btn btn-primary">Submit</button>
+            </div> -->
+
+
+
+
+
+
+
           <div class="row">
             <div class="col">
               <label id="forms">First name</label>
@@ -592,6 +614,7 @@
             </div>
           </div>
         </div>
+        <br><br>
         <!-- professional detatiles goes here-->
         <div *ngIf="div4" id="Professional">
           <div class="row">

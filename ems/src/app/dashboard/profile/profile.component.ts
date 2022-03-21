@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { ReactiveFormConfig, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { ApiService } from 'src/app/service files/api.service';
-import { RxwebValidators } from '@rxweb/reactive-form-validators';
-
 
 
 @Component({
@@ -20,24 +19,24 @@ export class ProfileComponent implements OnInit {
   userform!: FormGroup;
 
   submitted: boolean = false;
- 
+  form: any;
+
   constructor(private fb: FormBuilder,public api:ApiService) {
-  
+    
     this.userform=this.fb.group({
-      
       firstname: new FormControl('', [Validators.required, ]), 
       lastname: new FormControl('', [Validators.required,  ]),
       dob: new FormControl('', [Validators.required,    ]),
       gender: new FormControl('', Validators.required),
       empref: new FormControl('', Validators.required),
-      mobilenumber: new FormControl('', [Validators.required,   ]),
-      homenumber: new FormControl('', [Validators.required, ]),
-      officenumber:['', RxwebValidators.pattern({expression:{'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/} })], 
+      mobilenumber:  new FormControl('', Validators.required),
+      homenumber: new FormControl('', Validators.required),
+      officenumber:  new FormControl('',   RxwebValidators.pattern({expression:{'onlyDigit': /^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$/} }) ),
       email: new FormControl('', Validators.required),
       presentaddressfull: new FormControl('', Validators.required),
       presentlocality: new FormControl('', Validators.required),
       presentcity: new FormControl('', Validators.required),
-      presentpincode: new FormControl('',  [Validators.required,  ]),  
+      presentpincode:  new FormControl('', Validators.required),
       presentdistrict: new FormControl('', Validators.required),
       presentstate: new FormControl('', Validators.required),
       presentcountry: new FormControl('', Validators.required),
@@ -46,7 +45,7 @@ export class ProfileComponent implements OnInit {
       permanentaddressfull: new FormControl('', Validators.required),
       permanentaddresslocality: new FormControl('', Validators.required),
       permanentaddresscity: new FormControl('', Validators.required),
-      permanentaddresspincode: new FormControl('',  [Validators.required,  ]),  
+      permanentaddresspincode:  new FormControl('', Validators.required),
       permanentaddressdistrict: new FormControl('', Validators.required),
       permanentaddressstate: new FormControl('', Validators.required),
       permanentaddresscountry: new FormControl('', Validators.required),
@@ -75,6 +74,9 @@ export class ProfileComponent implements OnInit {
     this.addskill();
     this.addprof();
     this.addref()
+    ReactiveFormConfig.set({"validationMessage":{"onlyDigit":"Input does not match the pattern requirements"}});
+
+
   }
 //submit button
 add() {
@@ -181,5 +183,9 @@ removeref(i:number){
 }
 
 
- 
+    get f(){  
+      console.log(this.userform)
+      return this.userform.controls;  
+    } 
+
 }
